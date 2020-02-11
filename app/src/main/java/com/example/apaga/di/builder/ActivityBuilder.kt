@@ -5,12 +5,8 @@ import dagger.android.ContributesAndroidInjector
 
 
 abstract class ActivityBuilder {
-    @ContributesAndroidInjector(modules = {
-        FeedActivityModule.class,
-    })
 
-
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector
     internal abstract fun bindMainActivity(): MainActivity
 
 
