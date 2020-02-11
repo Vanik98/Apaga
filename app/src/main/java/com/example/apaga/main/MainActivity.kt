@@ -1,7 +1,8 @@
-package com.example.apaga
+package com.example.apaga.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.apaga.R
 
 class MainActivity : AppCompatActivity() {
 
