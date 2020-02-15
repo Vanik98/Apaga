@@ -6,7 +6,7 @@ import dagger.Component
 
 @ActivityScope
 @Component(
-        dependencies = [ApplicationComponent::class],
+        dependencies = [AppComponent::class],
         modules = [ActivityModule::class]
 )
 interface ActivityComponent {

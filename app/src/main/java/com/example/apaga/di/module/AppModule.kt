@@ -1,13 +1,13 @@
 package com.example.friends.di.module
 
-import com.example.apaga.ApagaApplication
+import com.example.apaga.MvpApp
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class ApplicationModule(
-    private val application: ApagaApplication
+class AppModule(
+    private val application: MvpApp
 ) {
     @Provides @Singleton fun provideApplication() = application
 }
