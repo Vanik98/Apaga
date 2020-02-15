@@ -1,4 +1,4 @@
-package com.example.friends.di
+package com.example.apaga.di
 
 import javax.inject.Scope
 

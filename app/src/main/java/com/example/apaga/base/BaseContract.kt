@@ -1,4 +1,4 @@
-package com.example.apaga.main.base
+package com.example.apaga.base
 
 interface BaseContract {
 

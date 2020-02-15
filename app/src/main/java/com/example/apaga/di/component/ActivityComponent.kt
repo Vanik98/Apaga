@@ -1,8 +1,7 @@
-package com.example.friends.di.component
-
-import com.example.apaga.main.di.module.ActivityModule
-import com.example.apaga.main.login.LoginActivity
-import com.example.friends.di.*
+package com.example.apaga.di.component
+import com.example.apaga.di.ActivityScope
+import com.example.apaga.di.module.ActivityModule
+import com.example.apaga.login.LoginActivity
 import dagger.Component
 
 @ActivityScope

@@ -1,11 +1,11 @@
-package com.example.apaga.main.login
+package com.example.apaga.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.apaga.R
-import com.example.apaga.main.base.BaseActivity
-import com.example.apaga.main.di.module.ActivityModule
+import com.example.apaga.base.BaseActivity
+import com.example.apaga.di.module.ActivityModule
 import com.example.friends.di.component.ApplicationComponent
+import com.example.friends.di.component.DaggerActivityComponent
 
 class LoginActivity : BaseActivity() {
 
