@@ -1,5 +1,8 @@
 package com.example.apaga.data
 
+import androidx.lifecycle.LiveData
+import com.example.apaga.data.db.model.User
+
 class AppDataManager : DataManager {
     override fun getCurrentUserLoggedInMode(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -42,6 +45,10 @@ class AppDataManager : DataManager {
     }
 
     override fun setAccessToken(accessToken: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getUser(): LiveData<User> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
