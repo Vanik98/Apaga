@@ -1,4 +1,4 @@
 package com.example.apaga.ui.base
 
-class BaseFragment {
+abstract class BaseFragment {
 }
