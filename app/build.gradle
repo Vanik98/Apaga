@@ -33,11 +33,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
     //dager
     implementation "com.google.dagger:dagger:2.4"
     kapt "com.google.dagger:dagger-compiler:2.4"
-
     //recyclerview
     implementation 'com.android.support:design:29.0.0'
     implementation 'com.android.support:recyclerview-v7:29.0.0'
@@ -45,4 +43,8 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    // GSON with Retrofit
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 }
