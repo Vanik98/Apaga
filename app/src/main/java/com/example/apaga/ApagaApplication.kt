@@ -1,5 +1,6 @@
 package com.example.apaga
 
+
 import android.app.Application
 import android.content.Context
 import com.example.apaga.di.component.ApplicationComponent
@@ -15,14 +16,9 @@ class ApagaApplication : Application() {
         }
     }
 
-
     override fun onCreate() {
         super.onCreate()
         setupGraph()
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
     }
 
     private fun setupGraph() {
