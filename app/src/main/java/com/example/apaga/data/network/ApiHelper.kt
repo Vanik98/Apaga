@@ -1,12 +1,14 @@
 package com.example.apaga.data.network
 
-import android.telecom.Call
+import com.example.apaga.data.db.model.User
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiHelper {
 
-    @GET("Search")
-    fun getUser(@Query("api-key") apiKey: String): Call
+    @GET("")
+    fun getUser(@Query("api-key") apiKey: String): Call<User>
+
 
 }
