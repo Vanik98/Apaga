@@ -2,8 +2,8 @@ package com.example.apaga
 
 import android.app.Application
 import android.content.Context
-import com.example.friends.di.component.ApplicationComponent
-import com.example.friends.di.component.DaggerApplicationComponent
+import com.example.apaga.di.component.ApplicationComponent
+import com.example.apaga.di.component.DaggerApplicationComponent
 import com.example.friends.di.module.ApplicationModule
 
 class ApagaApplication : Application() {

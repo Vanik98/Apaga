@@ -3,10 +3,9 @@ package com.example.apaga.login
 import android.os.Bundle
 import com.example.apaga.R
 import com.example.apaga.base.BaseActivity
+import com.example.apaga.di.component.ApplicationComponent
+import com.example.apaga.di.component.DaggerActivityComponent
 import com.example.apaga.di.module.ActivityModule
-import com.example.friends.di.component.ApplicationComponent
-import com.example.friends.di.component.DaggerActivityComponent
-
 class LoginActivity : BaseActivity() {
 
     override fun setupComponent(applicationComponent: ApplicationComponent) {

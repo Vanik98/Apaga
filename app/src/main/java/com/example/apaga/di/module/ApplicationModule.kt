@@ -1,6 +1,6 @@
 package com.example.friends.di.module
 
-import com.example.apaga.main.ApagaApplication
+import com.example.apaga.ApagaApplication
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
