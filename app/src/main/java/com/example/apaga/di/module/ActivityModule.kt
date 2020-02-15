@@ -1,6 +1,6 @@
 package com.example.apaga.di.module
 
-import com.example.apaga.base.BaseActivity
+import com.example.apaga.ui.base.BaseActivity
 import dagger.Module
 import dagger.Provides
 

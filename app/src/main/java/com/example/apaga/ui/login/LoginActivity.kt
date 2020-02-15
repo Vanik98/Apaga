@@ -1,8 +1,8 @@
-package com.example.apaga.login
+package com.example.apaga.ui.login
 
 import android.os.Bundle
 import com.example.apaga.R
-import com.example.apaga.base.BaseActivity
+import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.di.component.ApplicationComponent
 import com.example.apaga.di.component.DaggerActivityComponent
 import com.example.apaga.di.module.ActivityModule

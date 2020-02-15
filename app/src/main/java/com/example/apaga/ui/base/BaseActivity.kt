@@ -1,4 +1,4 @@
-package com.example.apaga.base
+package com.example.apaga.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
