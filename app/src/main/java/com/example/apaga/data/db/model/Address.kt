@@ -1,4 +1,4 @@
-package com.example.apaga.data.network.model
+package com.example.apaga.data.db.model
 
 data class Address(
         val streetName : String,
