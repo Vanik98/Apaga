@@ -1,6 +1,7 @@
 package com.example.apaga.di.component
 import com.example.apaga.di.ActivityScope
 import com.example.apaga.di.module.ActivityModule
+import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.login.LoginActivity
 import dagger.Component
 
@@ -11,4 +12,5 @@ import dagger.Component
 )
 interface ActivityComponent {
     fun inject(activity: LoginActivity)
+    fun inject(activity: HomeActivity)
 }

@@ -1,4 +1,4 @@
 package com.example.apaga.ui.home
 
-class HomeModel {
+class HomeModel : HomeContract.Model {
 }
