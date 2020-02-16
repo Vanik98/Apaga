@@ -1,6 +1,5 @@
 package com.example.apaga.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.apaga.R
 import com.example.apaga.di.component.AppComponent
