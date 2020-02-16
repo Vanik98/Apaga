@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.apaga.MvpApp
 import com.example.apaga.di.component.AppComponent
 
-
-
 abstract class BaseActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
