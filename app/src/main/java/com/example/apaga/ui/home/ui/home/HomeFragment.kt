@@ -1,5 +1,6 @@
 package com.example.apaga.ui.home.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.apaga.ui.home.R
+import com.example.apaga.R
+
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
