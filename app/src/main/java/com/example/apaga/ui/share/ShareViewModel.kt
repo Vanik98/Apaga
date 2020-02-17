@@ -1,4 +1,4 @@
-package com.example.apaga.ui.home.ui.share
+package com.example.apaga.ui.share
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
