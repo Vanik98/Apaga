@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import androidx.fragment.app.FragmentTransaction
 import com.example.apaga.R
 import com.example.apaga.di.component.AppComponent
 import com.example.apaga.di.component.DaggerActivityComponent
