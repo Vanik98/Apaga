@@ -14,6 +14,7 @@ import com.example.apaga.ui.home.HomeActivity
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
+
     override fun setupComponent(appComponent: AppComponent) {
         DaggerActivityComponent.builder()
                 .appComponent(appComponent)
@@ -35,7 +36,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         setContentView(R.layout.activity_login)
         presenter.attach(this)
         actionWithXmlViews()
-        startActivity(Intent(this, HomeActivity::class.java))
     }
 
     override fun onStart() {
@@ -52,8 +52,12 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     }
 
-    override fun openRegistrationFacebookActivty() {
+    override fun openRegistrationFacebookActivity() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun openHomeActivity() {
+        startActivity(Intent(this,HomeActivity::class.java))
     }
 
     private fun actionWithXmlViews(){
@@ -70,7 +74,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
+            presenter.login(email.text.toString(),password.text.toString())
         }
         emailRegistration.setOnClickListener {
 

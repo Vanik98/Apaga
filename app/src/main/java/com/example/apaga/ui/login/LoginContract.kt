@@ -9,11 +9,13 @@ interface LoginContract{
     interface View : MvpView{
         fun openRegistrationEmailFragment()
 
-        fun openRegistrationFacebookActivty()
+        fun openRegistrationFacebookActivity()
+
+        fun openHomeActivity()
     }
 
     interface Presenter : MvpPresenter<View> {
-
+        fun login(email:String,password:String)
     }
 
     interface Model : MvpModel {
