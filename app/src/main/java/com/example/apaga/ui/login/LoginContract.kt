@@ -7,6 +7,9 @@ import com.example.apaga.ui.base.MvpView
 interface LoginContract{
 
     interface View : MvpView{
+        fun openRegistrationEmailFragment()
+
+        fun openRegistrationFacebookActivty()
     }
 
     interface Presenter : MvpPresenter<View> {
