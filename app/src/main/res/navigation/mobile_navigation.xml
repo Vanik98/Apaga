@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_payment">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_payment"
         android:name="com.example.apaga.ui.payment.PaymentFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/menu_payment"
+        tools:layout="@layout/fragment_payment" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_buy_bags"
         android:name="com.example.apaga.ui.buybags.BuyBagasFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_buy_bags"
         tools:layout="@layout/fragment_buy_bugs" />
 
     <fragment
