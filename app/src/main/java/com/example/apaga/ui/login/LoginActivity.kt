@@ -11,6 +11,7 @@ import com.example.apaga.di.component.AppComponent
 import com.example.apaga.di.component.DaggerActivityComponent
 import com.example.apaga.di.module.ActivityModule
 import com.example.apaga.ui.home.HomeActivity
+import com.example.apaga.utils.DialogUtils
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
@@ -25,6 +26,8 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     @Inject
     lateinit var presenter: LoginContract.Presenter
+    @Inject
+    lateinit var dialogUtils: DialogUtils
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
@@ -57,13 +60,16 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     override fun openHomeActivity() {
+//        dialogUtils.showProgressBar(this)
+//        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
         startActivity(Intent(this,HomeActivity::class.java))
     }
 
-    private fun actionWithXmlViews(){
+    private fun actionWithXmlViews() {
         findViewIds()
         setButtonsClickListener()
     }
+
     private fun findViewIds() {
         email = findViewById(R.id.et_email)
         password = findViewById(R.id.et_password)
@@ -74,12 +80,12 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
-            presenter.login(email.text.toString(),password.text.toString())
+            presenter.login(email.text.toString(), password.text.toString())
         }
         emailRegistration.setOnClickListener {
 
         }
-        facebookRegistration.setOnClickListener{
+        facebookRegistration.setOnClickListener {
 
         }
     }

@@ -7,6 +7,7 @@ import com.example.apaga.ui.home.HomePresenter
 import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginModel
 import com.example.apaga.ui.login.LoginPresenter
+import com.example.apaga.utils.DialogUtils
 import dagger.Module
 import dagger.Provides
 
@@ -23,4 +24,6 @@ class ActivityModule(
     @Provides fun provideHomePresenter(model: HomeContract.Model): HomeContract.Presenter = HomePresenter(model)
 
     @Provides fun provideHomeModel(): HomeContract.Model = HomeModel()
+
+    @Provides fun provideDialogUtil(): DialogUtils = DialogUtils()
 }

@@ -8,18 +8,17 @@ import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.Button
 import android.widget.TextView
 import com.example.apaga.R
 
 class DialogUtils {
-    fun showConfirmationDialog(context: Context, title: String, message: String,
-                              negativeClickListener: View.OnClickListener,
-                               positiveClickListener: View.OnClickListener) {
-        val dialog: Dialog = Dialog(context)
+    fun showConfirmationDialog(context: Context, title: String?, message: String?,
+                               negativeClickListener: View.OnClickListener?,
+                               positiveClickListener: View.OnClickListener?) {
+        val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
-        dialog.setContentView(R.layout.custom_confirmation_dialog)
+        dialog.setContentView(R.layout.dialog_custom_confirmation)
 
         if (dialog.window != null) {
             dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -37,7 +36,7 @@ class DialogUtils {
         }
         txtMessage.text = message
 
-        val btnNegative: Button = dialog.findViewById(R.id.btn_negative)
+        val btnNegative: TextView = dialog.findViewById(R.id.btn_negative)
         if (negativeClickListener != null) {
             btnNegative.setOnClickListener(View.OnClickListener { v ->
                 negativeClickListener.onClick(v)
@@ -45,10 +44,10 @@ class DialogUtils {
             })
 
         } else {
-            btnNegative.setVisibility(View.GONE)
+            btnNegative.visibility = View.GONE
         }
 
-        val btnPositive: Button = dialog.findViewById(R.id.btn_positive)
+        val btnPositive: TextView = dialog.findViewById(R.id.btn_positive)
         btnPositive.setOnClickListener(View.OnClickListener { v ->
             if (positiveClickListener != null) {
                 positiveClickListener.onClick(v)
@@ -58,5 +57,19 @@ class DialogUtils {
 
         dialog.show()
 
+    }
+
+    fun showProgressBar(context: Context) {
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_loading_progressbar)
+
+        if (dialog.window != null) {
+            dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+
+        dialog.show()
     }
 }
