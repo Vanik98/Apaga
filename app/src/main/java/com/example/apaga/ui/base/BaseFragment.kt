@@ -8,5 +8,10 @@ import com.example.apaga.di.component.AppComponent
 import com.example.apaga.di.component.FragmentComponent
 
 abstract class BaseFragment : Fragment(){
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        setupComponent()
 
+    }
+    abstract fun setupComponent()
 }
