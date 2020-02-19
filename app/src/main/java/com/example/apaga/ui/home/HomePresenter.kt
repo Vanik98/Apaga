@@ -1,18 +1,17 @@
-package com.example.apaga.utils.rx
+package com.example.apaga.ui.home
 
-import io.reactivex.Scheduler
-
-class AppSchedulerProvider :SchedulerProvider {
-    override fun computation(): Scheduler {
+class HomePresenter(
+        var model: HomeContract.Model
+) : HomeContract.Presenter {
+    override fun subscribe() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun io(): Scheduler {
+    override fun unsubscribe() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun ui(): Scheduler {
+    override fun attach(view: HomeContract.View) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }

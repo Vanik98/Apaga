@@ -1,17 +1,13 @@
-package com.example.apaga.di.module
+package com.example.friends.di.module
 
+import com.example.apaga.MvpApp
 import dagger.Module
-import javax.inject.Singleton
 import dagger.Provides
-import android.app.Application
-import android.content.Context
-
+import javax.inject.Singleton
 
 @Module
-class AppModule {
-    @Provides
-    @Singleton
-    fun provideContext(application: Application): Context {
-        return application
-    }
+class AppModule(
+    private val application: MvpApp
+) {
+    @Provides @Singleton fun provideApplication() = application
 }
