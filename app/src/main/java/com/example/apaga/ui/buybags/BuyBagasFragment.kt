@@ -14,6 +14,7 @@ class BuyBagasFragment : BaseFragment(),BuyBagsContract.View {
                 .build()
                 .inject(this)
     }
+
     @Inject lateinit var presenter: BuyBagsContract.Presenter
 
     override fun onAttach(context: Context) {
