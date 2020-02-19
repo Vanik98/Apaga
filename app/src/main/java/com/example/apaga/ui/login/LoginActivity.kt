@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.bumptech.glide.request.RequestOptions
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.di.component.AppComponent
@@ -12,6 +14,12 @@ import com.example.apaga.di.component.DaggerActivityComponent
 import com.example.apaga.di.module.ActivityModule
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.utils.DialogUtils
+import com.facebook.*
+import com.facebook.login.LoginResult
+import com.facebook.login.widget.LoginButton
+import kotlinx.android.synthetic.main.activity_login.view.*
+import org.json.JSONObject
+import java.util.*
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
@@ -32,12 +40,14 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     private lateinit var password: EditText
     private lateinit var login: Button
     private lateinit var emailRegistration: Button
-    private lateinit var facebookRegistration: Button
+    private lateinit var facebookRegistration: LoginButton
+    private lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         presenter.attach(this)
+        callbackManager = CallbackManager.Factory.create()
         actionWithXmlViews()
     }
 
@@ -62,7 +72,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun openHomeActivity() {
 //        dialogUtils.showProgressBar(this)
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
-        startActivity(Intent(this,HomeActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
     }
 
     private fun actionWithXmlViews() {
@@ -85,8 +95,50 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         emailRegistration.setOnClickListener {
 
         }
-        facebookRegistration.setOnClickListener {
 
+        facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
+        facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(loginResult: LoginResult) {
+                // App code
+            }
+
+            override fun onCancel() {
+                // App code
+            }
+
+            override fun onError(exception: FacebookException) {
+                // App code
+            }
+        })
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode,resultCode,data)
+        super.onActivityResult(requestCode, resultCode, data)
+        val a = object :AccessTokenTracker(){
+            override fun onCurrentAccessTokenChanged(oldAccessToken: AccessToken?, currentAccessToken: AccessToken?) {
+                if(currentAccessToken != null){
+                    loaduserProfile(currentAccessToken)
+                }
+            }
         }
+    }
+val context = this
+    private fun loaduserProfile(token:AccessToken){
+        val request = GraphRequest.newMeRequest(token,object :GraphRequest.GraphJSONObjectCallback{
+            override fun onCompleted(o: JSONObject?, response: GraphResponse?) {
+                      val first_name = o!!.getString("first_name")
+                Toast.makeText(context,first_name,Toast.LENGTH_LONG)
+                val requestOptions = RequestOptions()
+                requestOptions.dontAnimate()
+
+
+            }
+        })
+        val b = Bundle()
+        b.putString("fields","first_name,last_name,email,id")
+        request.parameters = b
+        request.executeAsync()
     }
 }
