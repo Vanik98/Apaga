@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.bumptech.glide.request.RequestOptions
 import com.example.apaga.R
+import com.example.apaga.data.db.model.User
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.di.component.AppComponent
 import com.example.apaga.di.component.DaggerActivityComponent
@@ -77,9 +78,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     private fun actionWithXmlViews() {
         findViewIds()
+        setViewParameters()
         setButtonsClickListener()
     }
 
+    private fun setViewParameters(){
+        facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
+    }
     private fun findViewIds() {
         email = findViewById(R.id.et_email)
         password = findViewById(R.id.et_password)
@@ -90,13 +95,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
-            presenter.login(email.text.toString(), password.text.toString())
+            presenter.loginWithEmail(email.text.toString(), password.text.toString())
         }
         emailRegistration.setOnClickListener {
 
         }
 
-        facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
+
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 // App code
@@ -116,29 +121,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode,resultCode,data)
         super.onActivityResult(requestCode, resultCode, data)
-        val a = object :AccessTokenTracker(){
-            override fun onCurrentAccessTokenChanged(oldAccessToken: AccessToken?, currentAccessToken: AccessToken?) {
-                if(currentAccessToken != null){
-                    loaduserProfile(currentAccessToken)
-                }
-            }
-        }
+        presenter.accessTokenTracker()
     }
-val context = this
-    private fun loaduserProfile(token:AccessToken){
-        val request = GraphRequest.newMeRequest(token,object :GraphRequest.GraphJSONObjectCallback{
-            override fun onCompleted(o: JSONObject?, response: GraphResponse?) {
-                      val first_name = o!!.getString("first_name")
-                Toast.makeText(context,first_name,Toast.LENGTH_LONG)
-                val requestOptions = RequestOptions()
-                requestOptions.dontAnimate()
 
-
-            }
-        })
-        val b = Bundle()
-        b.putString("fields","first_name,last_name,email,id")
-        request.parameters = b
-        request.executeAsync()
-    }
 }
