@@ -1,8 +1,16 @@
 package com.example.apaga.ui.home
 
+import androidx.lifecycle.LiveData
+import com.example.apaga.data.db.model.User
+
 class HomePresenter(
         var model: HomeContract.Model
 ) : HomeContract.Presenter {
+    override fun loadUser() {
+
+    }
+
+    lateinit var view:HomeContract.View
     override fun subscribe() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -12,6 +20,6 @@ class HomePresenter(
     }
 
     override fun attach(view: HomeContract.View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.view = view
     }
 }

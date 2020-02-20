@@ -85,6 +85,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     private fun setViewParameters(){
         facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
     }
+
     private fun findViewIds() {
         email = findViewById(R.id.et_email)
         password = findViewById(R.id.et_password)
@@ -100,8 +101,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         emailRegistration.setOnClickListener {
 
         }
-
-
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 // App code
