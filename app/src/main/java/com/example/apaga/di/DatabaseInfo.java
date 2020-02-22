@@ -12,17 +12,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package com.example.apaga.di.component
 
-import com.example.apaga.di.PerActivity
-import com.example.apaga.di.module.ActivityModule
-import com.facebook.login.Login
+package com.example.apaga.di;
 
-import dagger.Component
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
+import javax.inject.Qualifier;
 
-@PerActivity
-@Component(dependencies = [ApplicationComponent::class], modules = [ActivityModule::class])
-interface ActivityComponent {
-    fun inject(activity: Login?)
+/**
+ * Created by janisharali on 27/01/17.
+ */
+
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DatabaseInfo {
 }

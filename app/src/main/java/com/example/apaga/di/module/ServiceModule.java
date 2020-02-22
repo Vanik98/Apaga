@@ -12,17 +12,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package com.example.apaga.di.component
 
-import com.example.apaga.di.PerActivity
-import com.example.apaga.di.module.ActivityModule
-import com.facebook.login.Login
+package com.example.apaga.di.module;
 
-import dagger.Component
+import android.app.Service;
 
+import dagger.Module;
 
-@PerActivity
-@Component(dependencies = [ApplicationComponent::class], modules = [ActivityModule::class])
-interface ActivityComponent {
-    fun inject(activity: Login?)
+/**
+ * Created by janisharali on 01/02/17.
+ */
+
+@Module
+public class ServiceModule {
+
+    private final Service mService;
+
+    public ServiceModule(Service service) {
+        mService = service;
+    }
 }

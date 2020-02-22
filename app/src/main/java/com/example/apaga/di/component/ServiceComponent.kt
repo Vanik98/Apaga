@@ -14,15 +14,11 @@
  */
 package com.example.apaga.di.component
 
-import com.example.apaga.di.PerActivity
-import com.example.apaga.di.module.ActivityModule
-import com.facebook.login.Login
-
+import com.example.apaga.di.PerService
+import com.example.apaga.di.module.ServiceModule
 import dagger.Component
 
-
-@PerActivity
-@Component(dependencies = [ApplicationComponent::class], modules = [ActivityModule::class])
-interface ActivityComponent {
-    fun inject(activity: Login?)
+@PerService
+@Component(dependencies = [ApplicationComponent::class], modules = [ServiceModule::class])
+interface ServiceComponent { //    void inject(SyncService service);
 }
