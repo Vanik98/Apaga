@@ -12,19 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
+package com.example.apaga.di
 
-package com.example.apaga.di;
+import java.lang.annotation.Retention
+import java.lang.annotation.RetentionPolicy
+import javax.inject.Scope
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Qualifier;
-
-/**
- * Created by janisharali on 27/01/17.
- */
-
-@Qualifier
+@Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ApiInfo {
-}
+annotation class PerService
