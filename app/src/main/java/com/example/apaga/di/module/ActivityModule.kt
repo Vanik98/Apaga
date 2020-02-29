@@ -24,6 +24,8 @@ import com.example.apaga.ui.home.HomeContract
 import com.example.apaga.ui.home.HomePresenter
 import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
+import com.example.apaga.ui.main.MainContract
+import com.example.apaga.ui.main.MainPresenter
 import com.example.apaga.ui.payment.PaymentContract
 import com.example.apaga.ui.payment.PaymentPresenter
 import dagger.Module
@@ -32,39 +34,33 @@ import dagger.Provides
 
 @Module
 class ActivityModule(activity: AppCompatActivity) {
+
     private val activity: AppCompatActivity = activity
+
     @Provides
     @ActivityContext
-    fun provideContext(): Context {
-        return activity
-    }
+    fun provideContext(): Context =  activity
 
     @Provides
-    fun provideActivity(): AppCompatActivity {
-        return activity
-    }
+    fun provideActivity(): AppCompatActivity = activity
 
     @Provides
     @PerActivity
-    fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter {
-        return presenter
-    }
+    fun provideMainPresenter(presenter: MainPresenter): MainContract.Presenter = presenter
 
     @Provides
-    fun provideBuyBugsPresenter(presenter: BuyBagsPresenter): BuyBagsContract.Presenter {
-        return presenter
-    }
+    fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter = presenter
 
     @Provides
-    @PerActivity
-    fun provideHomePresenter(presenter: HomePresenter): HomeContract.Presenter {
-        return presenter
-    }
+    fun provideBuyBugsPresenter(presenter: BuyBagsPresenter): BuyBagsContract.Presenter = presenter
 
     @Provides
     @PerActivity
-    fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter {
-        return presenter
-    }
+    fun provideHomePresenter(presenter: HomePresenter): HomeContract.Presenter = presenter
+
+    @Provides
+    @PerActivity
+    fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter = presenter
+
 
 }

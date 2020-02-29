@@ -10,5 +10,4 @@ interface BuyBagsContract {
     interface Presenter : MvpPresenter<View> {
 
     }
-
 }

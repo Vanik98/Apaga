@@ -1,4 +1,4 @@
-package com.example.apaga.ui.login
+package com.example.apaga.ui.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.widget.EditText
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.home.HomeActivity
-import com.example.apaga.utils.DialogUtils
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -15,11 +14,11 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import javax.inject.Inject
 
-class LoginActivity : BaseActivity(), LoginContract.View {
+class MainActivity : BaseActivity(), MainContract.View {
 
 
     @Inject
-    lateinit var presenter: LoginContract.Presenter
+    lateinit var presenter: MainContract.Presenter
 //    @Inject
 //    lateinit var dialogUtils: DialogUtils
     private lateinit var email: EditText
@@ -31,7 +30,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
         activityComponent.inject(this)
         presenter.onAttach(this)
         callbackManager = CallbackManager.Factory.create()
