@@ -25,10 +25,8 @@ class PaymentFragment : BaseFragment(),PaymentContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (activityComponent != null) {
             activityComponent!!.inject(this)
             presenter.onAttach(this)
-        }
         return inflater.inflate(R.layout.fragment_payment,container,false)
     }
 }

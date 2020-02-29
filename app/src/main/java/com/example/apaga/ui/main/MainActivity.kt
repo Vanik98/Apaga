@@ -1,17 +1,12 @@
 package com.example.apaga.ui.main
 
+import android.app.FragmentTransaction
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
-import com.example.apaga.ui.home.HomeActivity
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginResult
-import com.facebook.login.widget.LoginButton
+import com.example.apaga.ui.login.LoginFragment
+import com.example.apaga.ui.registration.RegistrationFragment
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
@@ -19,21 +14,14 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     @Inject
     lateinit var presenter: MainContract.Presenter
-//    @Inject
-//    lateinit var dialogUtils: DialogUtils
-    private lateinit var email: EditText
-    private lateinit var password: EditText
-    private lateinit var login: Button
-    private lateinit var emailRegistration: Button
-    private lateinit var facebookRegistration: LoginButton
-    private lateinit var callbackManager: CallbackManager
-
+//    @Inject lateinit var  regFragment: RegistrationFragment
+//    @Inject lateinit var loginFragment: LoginFragment
+    private lateinit var fragTrans: FragmentTransaction
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         activityComponent.inject(this)
         presenter.onAttach(this)
-        callbackManager = CallbackManager.Factory.create()
         actionWithXmlViews()
     }
 
@@ -41,20 +29,47 @@ class MainActivity : BaseActivity(), MainContract.View {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun openRegistrationEmailFragment() {
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        callbackManager.onActivityResult(requestCode,resultCode,data)
+        super.onActivityResult(requestCode, resultCode, data)
+//        presenter.accessTokenTracker()
     }
 
-    override fun openRegistrationFacebookActivity() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    //    private void registration(){
+//        mRegistration = findViewById(R.id.tv_createAccount);
+//        mRegistration.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mFragTrans = getFragmentManager().beginTransaction();
+//                mFragTrans.replace(R.id.mainId, mRegFragment);
+//                mFragTrans.commit();
+//            }
+//        });
+//    }
+//    private void login(){
+//        mBtnLogin = findViewById(R.id.btn_login);
+//        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//    }
+    fun showFragment(framgmetName: String) {
+//        fragTrans = fragmentManager.beginTransaction()
+//        when (framgmetName) {
+//            "login" -> {
+//                fragTrans.replace(R.id.container, loginFragment)
+//                fragTrans.commit()
+//            }
+//            REGISTRATION_FRAGMENT -> {
+//                fragTrans.replace(R.id.container, regFragment)
+//                fragTrans.commit()
+//            }
+//            else -> {
+//            }
+//        }
     }
-
-    override fun openHomeActivity() {
-//        dialogUtils.showProgressBar(this)
-//        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
-        startActivity(Intent(this, HomeActivity::class.java))
-    }
-
 
     private fun actionWithXmlViews() {
         findViewIds()
@@ -62,45 +77,19 @@ class MainActivity : BaseActivity(), MainContract.View {
         setButtonsClickListener()
     }
 
-    private fun setViewParameters(){
-        facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
+    private fun setButtonsClickListener() {
+        print("")
+    }
+
+    private fun setViewParameters() {
+        print("")
     }
 
     private fun findViewIds() {
-        email = findViewById(R.id.et_email)
-        password = findViewById(R.id.et_password)
-        login = findViewById(R.id.btn_login)
-        emailRegistration = findViewById(R.id.btn_email)
-        facebookRegistration = findViewById(R.id.btn_facebook)
+        print("")
     }
 
-    private fun setButtonsClickListener() {
-        login.setOnClickListener {
-            presenter.loginWithEmail(email.text.toString(), password.text.toString())
-        }
-        emailRegistration.setOnClickListener {
-
-        }
-        facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-            override fun onSuccess(loginResult: LoginResult) {
-                // App code
-            }
-
-            override fun onCancel() {
-                // App code
-            }
-
-            override fun onError(exception: FacebookException) {
-                // App code
-            }
-        })
-
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode,resultCode,data)
-        super.onActivityResult(requestCode, resultCode, data)
-        presenter.accessTokenTracker()
-    }
 
 }
+
+

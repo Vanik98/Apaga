@@ -17,9 +17,6 @@ import com.google.android.material.navigation.NavigationView
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeContract.View {
-
-
-
     @Inject
     lateinit var presenter: HomeContract.Presenter
     private lateinit var appBarConfiguration: AppBarConfiguration
