@@ -17,7 +17,9 @@ package com.example.apaga.di.module
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apaga.di.ActivityContext
+import com.example.apaga.di.MainFragmentsTypeKey
 import com.example.apaga.di.PerActivity
+import com.example.apaga.enums.MainFragmentsType
 import com.example.apaga.ui.buybags.BuyBagsContract
 import com.example.apaga.ui.buybags.BuyBagsPresenter
 import com.example.apaga.ui.home.HomeContract
@@ -28,6 +30,8 @@ import com.example.apaga.ui.main.MainContract
 import com.example.apaga.ui.main.MainPresenter
 import com.example.apaga.ui.payment.PaymentContract
 import com.example.apaga.ui.payment.PaymentPresenter
+import com.example.apaga.ui.registration.RegistrationFragment
+import com.facebook.login.LoginFragment
 import dagger.Module
 import dagger.Provides
 
@@ -62,5 +66,12 @@ class ActivityModule(activity: AppCompatActivity) {
     @PerActivity
     fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter = presenter
 
+    @Provides(type = Provides.Type.MAP)
+    @MainFragmentsTypeKey(MainFragmentsType.LOGIN)
+    fun provideLoginFragment(fragment: LoginFragment) = fragment
 
+
+    @Provides(type = Provides.Type.MAP)
+    @MainFragmentsTypeKey(MainFragmentsType.REGISTRATION)
+    fun provideRegistrationFragment(fragment: RegistrationFragment) = fragment
 }
