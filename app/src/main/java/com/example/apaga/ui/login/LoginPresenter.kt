@@ -1,16 +1,12 @@
 package com.example.apaga.ui.login
 
 import android.os.Bundle
-import android.widget.Toast
 import com.bumptech.glide.request.RequestOptions
 import com.example.apaga.data.DataManager
-import com.example.apaga.data.db.model.User
 import com.example.apaga.ui.base.BasePresenter
 import com.facebook.AccessToken
 import com.facebook.AccessTokenTracker
 import com.facebook.GraphRequest
-import com.facebook.GraphResponse
-import org.json.JSONObject
 import javax.inject.Inject
 
 class LoginPresenter @Inject constructor(dataManager: DataManager
@@ -27,7 +23,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
     }
 
     override fun onAttach(mvpView: LoginContract.View) {
-
+        this.view = mvpView
     }
 
     override fun onDetach() {
@@ -41,7 +37,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
     lateinit var view : LoginContract.View
 
     override fun loginWithEmail(email: String, password: String) {
-
+        view.openHomeActivity()
     }
 
     private fun loginWithFacebook(token: AccessToken) {

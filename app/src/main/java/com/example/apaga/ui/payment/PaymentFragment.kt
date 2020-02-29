@@ -21,11 +21,10 @@ class PaymentFragment : BaseFragment(),PaymentContract.View {
     }
 
     override fun setUp(view: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view.setOnClickListener{}
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        presenter.onAttach(this)
         if (activityComponent != null) {
             activityComponent!!.inject(this)
             presenter.onAttach(this)

@@ -15,6 +15,6 @@ class HomePresenter @Inject constructor(dataManager: DataManager
 
     override fun onAttach(mvpView: HomeContract.View) {
         super.onAttach(mvpView)
-        this.view = view
+        this.view = mvpView
     }
 }

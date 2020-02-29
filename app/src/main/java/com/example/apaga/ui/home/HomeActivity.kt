@@ -53,8 +53,8 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         navController = findNavController(R.id.nav_host_fragment)
-        nameHeader = navView.findViewById(R.id.tv_nav_header_email)
-        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
+//        nameHeader = navView.findViewById(R.id.tv_nav_header_email)
+//        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
     }
 
     private fun setButtonsClickListener() {}
