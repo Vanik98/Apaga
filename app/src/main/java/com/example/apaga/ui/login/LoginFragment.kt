@@ -64,14 +64,14 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         emailRegistration = view.findViewById(R.id.btn_email)
         facebookRegistration = view.findViewById(R.id.btn_facebook)
     }
-//    @Inject lateinit var fragment : Map<MainFragmentsType, BaseFragment>
+//    @Inject lateinit var map : Map<MainFragmentsType, BaseFragment>
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
             presenter.loginWithEmail(email.text.toString(), password.text.toString())
         }
         emailRegistration.setOnClickListener {
-//            (activity as MainActivity).replaceFragment(fragment.getValue(MainFragmentsType.REGISTRATION))
+//            (activity as MainActivity).replaceFragment(map.getValue(MainFragmentsType.REGISTRATION))
         }
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {

@@ -20,6 +20,7 @@ import com.example.apaga.di.ActivityContext
 import com.example.apaga.di.MainFragmentsTypeKey
 import com.example.apaga.di.PerActivity
 import com.example.apaga.enums.MainFragmentsType
+import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.buybags.BuyBagsContract
 import com.example.apaga.ui.buybags.BuyBagsPresenter
 import com.example.apaga.ui.home.HomeContract
@@ -34,6 +35,7 @@ import com.example.apaga.ui.registration.RegistrationFragment
 import com.facebook.login.LoginFragment
 import dagger.Module
 import dagger.Provides
+import java.security.Provider
 
 
 @Module
@@ -74,4 +76,5 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides(type = Provides.Type.MAP)
     @MainFragmentsTypeKey(MainFragmentsType.REGISTRATION)
     fun provideRegistrationFragment(fragment: RegistrationFragment) = fragment
+
 }
