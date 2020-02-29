@@ -2,36 +2,21 @@ package com.example.apaga.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import com.bumptech.glide.request.RequestOptions
 import com.example.apaga.R
-import com.example.apaga.data.db.model.User
 import com.example.apaga.ui.base.BaseActivity
-import com.example.apaga.di.component.AppComponent
-import com.example.apaga.di.component.DaggerActivityComponent
-import com.example.apaga.di.module.ActivityModule
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.utils.DialogUtils
-import com.facebook.*
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
-import kotlinx.android.synthetic.main.activity_login.view.*
-import org.json.JSONObject
-import java.util.*
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 
-    override fun setupComponent(appComponent: AppComponent) {
-        DaggerActivityComponent.builder()
-                .appComponent(appComponent)
-                .activityModule(ActivityModule(this))
-                .build()
-                .inject(this)
-    }
 
     @Inject
     lateinit var presenter: LoginContract.Presenter
@@ -47,19 +32,13 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        presenter.attach(this)
+        presenter.onAttach(this)
         callbackManager = CallbackManager.Factory.create()
         actionWithXmlViews()
     }
 
-    override fun onStart() {
-        presenter.subscribe()
-        super.onStart()
-    }
-
-    override fun onPause() {
-        presenter.unsubscribe()
-        super.onPause()
+    override fun setUp() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun openRegistrationEmailFragment() {
@@ -75,6 +54,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
         startActivity(Intent(this, HomeActivity::class.java))
     }
+
 
     private fun actionWithXmlViews() {
         findViewIds()

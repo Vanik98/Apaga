@@ -12,7 +12,7 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 class LoginPresenter @Inject constructor(
-        var model: LoginContract.Model
+
 ) : LoginContract.Presenter{
 
     override fun accessTokenTracker() {

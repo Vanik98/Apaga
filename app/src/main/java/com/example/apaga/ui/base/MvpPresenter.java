@@ -13,36 +13,25 @@
  * limitations under the License
  */
 
-package com.example.apaga.di.component;
-
-import android.app.Application;
-import android.content.Context;
-
-import com.example.apaga.MvpApp;
-import com.example.apaga.data.DataManager;
-import com.example.apaga.di.ApplicationContext;
-import com.example.apaga.di.module.ApplicationModule;
-
-import javax.inject.Singleton;
-
-import dagger.Component;
+package com.example.apaga.ui.base;
 
 /**
  * Created by janisharali on 27/01/17.
  */
 
-@Singleton
-@Component(modules = ApplicationModule.class)
-public interface ApplicationComponent {
+import com.androidnetworking.error.ANError;
 
-    void inject(MvpApp app);
+/**
+ * Every presenter in the app must either implement this interface or extend BasePresenter
+ * indicating the MvpView type that wants to be attached with.
+ */
+public interface MvpPresenter<V extends MvpView> {
 
-//    void inject(SyncService service);
+    void onAttach(V mvpView);
 
-    @ApplicationContext
-    Context context();
+    void onDetach();
 
-    Application application();
+    void handleApiError(ANError error);
 
-    DataManager getDataManager();
+    void setUserAsLoggedOut();
 }

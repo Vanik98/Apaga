@@ -22,11 +22,8 @@ import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
 import dagger.Module
 import dagger.Provides
-import io.reactivex.disposables.CompositeDisposable
 
-/**
- * Created by janisharali on 27/01/17.
- */
+
 @Module
 class ActivityModule(activity: AppCompatActivity) {
     private val activity: AppCompatActivity = activity
@@ -43,8 +40,7 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     @PerActivity
-    fun provideLoginPresenter(
-            presenter: LoginPresenter<LoginMvpView>): LoginContract.Presenter<LoginMvpView> {
+    fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter {
         return presenter
     }
 

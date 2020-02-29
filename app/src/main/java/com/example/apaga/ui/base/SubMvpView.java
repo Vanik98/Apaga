@@ -13,22 +13,30 @@
  * limitations under the License
  */
 
-package com.example.apaga.di.module;
-
-import android.app.Service;
-
-import dagger.Module;
+package com.example.apaga.ui.base;
 
 /**
- * Created by janisharali on 01/02/17.
+ * Created by janisharali on 27/01/17.
  */
 
-@Module
-public class ServiceModule {
+/**
+ * Base interface that any class that wants to act as a View in the MVP (Model View Presenter)
+ * pattern must implement. Generally this interface will be extended by a more specific interface
+ * that then usually will be implemented by an Activity or Fragment.
+ */
+public interface SubMvpView extends MvpView {
 
-    private final Service mService;
+    void onCreate();
 
-    public ServiceModule(Service service) {
-        mService = service;
-    }
+    void onStart();
+
+    void onResume();
+
+    void onPause();
+
+    void onStop();
+
+    void onDestroy();
+
+    void attachParentMvpView(MvpView mvpView);
 }

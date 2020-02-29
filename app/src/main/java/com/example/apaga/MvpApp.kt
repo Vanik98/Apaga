@@ -4,6 +4,7 @@ package com.example.apaga
 import android.app.Application
 import com.example.apaga.data.DataManager
 import com.example.apaga.di.component.ApplicationComponent
+import com.example.apaga.di.component.DaggerApplicationComponent
 import com.example.apaga.di.module.ApplicationModule
 import javax.inject.Inject
 
@@ -14,7 +15,7 @@ class MvpApp : Application() {
 //    @Inject
 //    var mCalligraphyConfig: CalligraphyConfig? = null
 
-    private lateinit var applicationComponent: ApplicationComponent
+    lateinit var applicationComponent: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -29,15 +30,7 @@ class MvpApp : Application() {
 //        CalligraphyConfig.initDefault(mCalligraphyConfig)
 //    }
 
-        fun getComponent(): ApplicationComponent? {
-            return applicationComponent
-        }
 
-
-        // Needed to replace the component with a test specific one
-        fun setComponent(applicationComponent: ApplicationComponent) {
-            this.applicationComponent = applicationComponent
-        }
 
     }
 }
