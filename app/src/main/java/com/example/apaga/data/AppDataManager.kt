@@ -1,9 +1,14 @@
 package com.example.apaga.data
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.apaga.data.db.model.User
+import com.example.apaga.di.ApplicationContext
+import javax.inject.Inject
 
-class AppDataManager : DataManager {
+class AppDataManager @Inject constructor(
+        @ApplicationContext context : Context
+): DataManager {
     override fun getCurrentUserLoggedInMode(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

@@ -12,10 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package com.example.apaga.ui.base
+package com.example.apaga.di.component
 
-interface MvpPresenter<V : MvpView?> {
-    fun onAttach(mvpView: V)
-    fun onDetach()
-    fun setUserAsLoggedOut()
+import com.example.apaga.di.PerService
+import com.example.apaga.di.module.ServiceModule
+import dagger.Component
+
+@PerService
+@Component(dependencies = [ApplicationComponent::class], modules = [ServiceModule::class])
+interface ServiceComponent { //    void inject(SyncService service);
 }

@@ -2,32 +2,35 @@ package com.example.apaga
 
 
 import android.app.Application
-import android.content.Context
-import com.example.apaga.di.component.AppComponent
-import com.example.apaga.di.component.DaggerAppComponent
-import com.example.friends.di.module.AppModule
+import com.example.apaga.data.DataManager
+import com.example.apaga.di.component.ApplicationComponent
+import com.example.apaga.di.component.DaggerApplicationComponent
+import com.example.apaga.di.module.ApplicationModule
+import javax.inject.Inject
 
 class MvpApp : Application() {
-    private lateinit var component: AppComponent
+    @Inject
+    lateinit var mDataManager: DataManager
 
-    companion object {
-        fun get(context: Context): MvpApp {
-            return context.applicationContext as MvpApp
-        }
-    }
+//    @Inject
+//    var mCalligraphyConfig: CalligraphyConfig? = null
+
+    lateinit var applicationComponent: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
-        setupGraph()
+        applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(ApplicationModule(this)).build()
+        applicationComponent.inject(this)
+//        AppLogger.init()
+//        AndroidNetworking.initialize(applicationContext)
+//        if (BuildConfig.DEBUG) {
+//            AndroidNetworking.enableLogging(Level.BODY)
+//        }
+//        CalligraphyConfig.initDefault(mCalligraphyConfig)
+//    }
+
+
+
     }
-
-    private fun setupGraph() {
-        component = DaggerAppComponent.builder()
-                .appModule(AppModule(this))
-                .build()
-        component.inject(this)
-    }
-
-    fun getAppComponent() = component
-
 }

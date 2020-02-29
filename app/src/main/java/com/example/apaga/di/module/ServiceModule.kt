@@ -12,10 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package com.example.apaga.ui.base
+package com.example.apaga.di.module
 
-interface MvpPresenter<V : MvpView?> {
-    fun onAttach(mvpView: V)
-    fun onDetach()
-    fun setUserAsLoggedOut()
-}
+import android.app.Service
+import dagger.Module
+
+/**
+ * Created by janisharali on 01/02/17.
+ */
+@Module
+class ServiceModule(private val mService: Service)

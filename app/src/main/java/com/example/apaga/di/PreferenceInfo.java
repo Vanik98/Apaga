@@ -12,10 +12,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License
  */
-package com.example.apaga.ui.base
 
-interface MvpPresenter<V : MvpView?> {
-    fun onAttach(mvpView: V)
-    fun onDetach()
-    fun setUserAsLoggedOut()
+package com.example.apaga.di;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import javax.inject.Qualifier;
+
+/**
+ * Created by janisharali on 27/01/17.
+ */
+
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+public @interface PreferenceInfo {
 }

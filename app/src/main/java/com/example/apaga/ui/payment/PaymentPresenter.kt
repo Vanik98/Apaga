@@ -1,16 +1,17 @@
 package com.example.apaga.ui.payment
 
-class PaymentPresenter : PaymentContract.Presenter {
-    lateinit var view : PaymentContract.View
-    override fun subscribe() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+import com.example.apaga.data.DataManager
+import com.example.apaga.ui.base.BasePresenter
+import javax.inject.Inject
+
+class PaymentPresenter @Inject constructor(dataManager: DataManager
+) : BasePresenter<PaymentContract.View>(dataManager),PaymentContract.Presenter{
+
+    override fun onAttach(mvpView: PaymentContract.View) {
+        super.onAttach(mvpView)
     }
 
-    override fun unsubscribe() {
+    override fun onDetach() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun attach(view: PaymentContract.View) {
-        this.view = view
     }
 }
