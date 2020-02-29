@@ -45,7 +45,7 @@ class LoginPresenter @Inject constructor(
     }
 
     override fun subscribe() {
-
+        print("navsyaki")
     }
 
     override fun unsubscribe() {
