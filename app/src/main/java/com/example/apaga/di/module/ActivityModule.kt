@@ -18,8 +18,14 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apaga.di.ActivityContext
 import com.example.apaga.di.PerActivity
+import com.example.apaga.ui.buybags.BuyBagsContract
+import com.example.apaga.ui.buybags.BuyBagsPresenter
+import com.example.apaga.ui.home.HomeContract
+import com.example.apaga.ui.home.HomePresenter
 import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
+import com.example.apaga.ui.payment.PaymentContract
+import com.example.apaga.ui.payment.PaymentPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -41,6 +47,23 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides
     @PerActivity
     fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter {
+        return presenter
+    }
+
+    @Provides
+    fun provideBuyBugsPresenter(presenter: BuyBagsPresenter): BuyBagsContract.Presenter {
+        return presenter
+    }
+
+    @Provides
+    @PerActivity
+    fun provideHomePresenter(presenter: HomePresenter): HomeContract.Presenter {
+        return presenter
+    }
+
+    @Provides
+    @PerActivity
+    fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter {
         return presenter
     }
 

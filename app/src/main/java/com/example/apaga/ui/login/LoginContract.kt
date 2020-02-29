@@ -1,10 +1,7 @@
 package com.example.apaga.ui.login
-
-import com.example.apaga.data.db.model.User
-import com.example.apaga.ui.base.MvpModel
 import com.example.apaga.ui.base.MvpPresenter
 import com.example.apaga.ui.base.MvpView
-import com.facebook.AccessToken
+
 
 interface LoginContract{
 
@@ -23,8 +20,4 @@ interface LoginContract{
         fun accessTokenTracker()
 
     }
-
-    interface Model : MvpModel {
-    }
-
 }

@@ -20,8 +20,8 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     @Inject
     lateinit var presenter: LoginContract.Presenter
-    @Inject
-    lateinit var dialogUtils: DialogUtils
+//    @Inject
+//    lateinit var dialogUtils: DialogUtils
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
@@ -32,6 +32,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        activityComponent.inject(this)
         presenter.onAttach(this)
         callbackManager = CallbackManager.Factory.create()
         actionWithXmlViews()
