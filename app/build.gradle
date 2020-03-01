@@ -56,6 +56,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     //facebook
     implementation 'com.facebook.android:facebook-login:5.15.3'
+    //qrcode
+    implementation 'com.github.nisrulz:qreader:2.1.2'
 
 
 }
