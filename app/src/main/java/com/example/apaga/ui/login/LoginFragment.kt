@@ -11,6 +11,7 @@ import android.widget.EditText
 import com.example.apaga.R
 import com.example.apaga.di.MainFragmentsTypeKey
 import com.example.apaga.enums.MainFragmentsType
+import com.example.apaga.ui.address.AddressActivity
 import com.example.apaga.ui.base.BaseFragment
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.main.MainActivity
@@ -100,7 +101,8 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     override fun openHomeActivity() {
         //        dialogUtils.showProgressBar(this)
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
-        startActivity(Intent(activity, HomeActivity::class.java))
+//        startActivity(Intent(activity, HomeActivity::class.java))
+        startActivity(Intent(activity, AddressActivity::class.java))
     }
 }
 

@@ -10,6 +10,7 @@ interface LoginContract {
         fun openRegistrationFacebookActivity()
 
         fun openHomeActivity()
+
     }
 
     interface Presenter : MvpPresenter<View> {

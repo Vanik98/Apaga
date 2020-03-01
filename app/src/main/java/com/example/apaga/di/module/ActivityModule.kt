@@ -20,6 +20,8 @@ import com.example.apaga.di.ActivityContext
 import com.example.apaga.di.MainFragmentsTypeKey
 import com.example.apaga.di.PerActivity
 import com.example.apaga.enums.MainFragmentsType
+import com.example.apaga.ui.address.AddressContract
+import com.example.apaga.ui.address.AddressPresenter
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.buybags.BuyBagsContract
 import com.example.apaga.ui.buybags.BuyBagsPresenter
@@ -67,6 +69,10 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides
     @PerActivity
     fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter = presenter
+
+    @Provides
+    @PerActivity
+    fun provideAddressresenter(presenter: AddressPresenter): AddressContract.Presenter = presenter
 
     @Provides(type = Provides.Type.MAP)
     @MainFragmentsTypeKey(MainFragmentsType.LOGIN)

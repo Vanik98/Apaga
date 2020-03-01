@@ -22,5 +22,6 @@
     <string name="cancel">cancle</string>
     <string name="facebook_app_id">129331401741971</string>
     <string name="fb_login_protocol_scheme">fb129331401741971</string>
+    <string name="title_activity_address">Map</string>
 
 </resources>
