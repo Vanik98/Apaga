@@ -11,7 +11,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.apaga"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -31,22 +31,24 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    //dager
+    //navigation component
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+    //dagger
     implementation "com.google.dagger:dagger:2.4"
     kapt "com.google.dagger:dagger-compiler:2.4"
     //recyclerview
     implementation 'com.android.support:design:29.0.0'
     implementation 'com.android.support:recyclerview-v7:29.0.0'
     implementation 'com.android.support:cardview-v7:29.0.0'
+    //expandablerecyclerview
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
+    implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'

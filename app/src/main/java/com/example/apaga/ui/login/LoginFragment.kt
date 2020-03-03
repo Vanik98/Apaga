@@ -33,6 +33,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var facebookRegistration: LoginButton
     private lateinit var callbackManager: CallbackManager
     private lateinit var navController: NavController
+
     override fun setUp(view: View) {
         view.setOnClickListener{}
     }

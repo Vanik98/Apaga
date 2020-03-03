@@ -28,8 +28,12 @@ import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
 import com.example.apaga.ui.main.MainContract
 import com.example.apaga.ui.main.MainPresenter
+import com.example.apaga.ui.notifications.NotificationsContract
+import com.example.apaga.ui.notifications.NotificationsPresenter
 import com.example.apaga.ui.payment.PaymentContract
 import com.example.apaga.ui.payment.PaymentPresenter
+import com.example.apaga.ui.registration.RegistrationContract
+import com.example.apaga.ui.registration.RegistrationPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -51,22 +55,26 @@ class ActivityModule(activity: AppCompatActivity) {
     fun provideMainPresenter(presenter: MainPresenter): MainContract.Presenter = presenter
 
     @Provides
-    fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter = presenter
-
-    @Provides
-    fun provideBuyBugsPresenter(presenter: BuyBagsPresenter): BuyBagsContract.Presenter = presenter
+    @PerActivity
+    fun provideAddressPresenter(presenter: AddressPresenter): AddressContract.Presenter = presenter
 
     @Provides
     @PerActivity
     fun provideHomePresenter(presenter: HomePresenter): HomeContract.Presenter = presenter
 
     @Provides
-    @PerActivity
+    fun provideLoginPresenter(presenter: LoginPresenter): LoginContract.Presenter = presenter
+
+    @Provides
+    fun provideBuyBugsPresenter(presenter: BuyBagsPresenter): BuyBagsContract.Presenter = presenter
+
+    @Provides
     fun providePaymentPresenter(presenter: PaymentPresenter): PaymentContract.Presenter = presenter
 
     @Provides
-    @PerActivity
-    fun provideAddressPresenter(presenter: AddressPresenter): AddressContract.Presenter = presenter
+    fun provideRegistrationPresenter(presenter: RegistrationPresenter): RegistrationContract.Presenter = presenter
 
+    @Provides
+    fun provideNotificationsPresenter(presenter: NotificationsPresenter): NotificationsContract.Presenter = presenter
 
 }

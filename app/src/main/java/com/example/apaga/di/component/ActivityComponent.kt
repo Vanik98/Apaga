@@ -8,6 +8,7 @@ import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.login.LoginFragment
 import com.example.apaga.ui.main.MainActivity
 import com.example.apaga.ui.payment.PaymentFragment
+import com.example.apaga.ui.registration.RegistrationFragment
 import com.example.apaga.ui.settings.SettingsActivity
 import dagger.Component
 
@@ -25,6 +26,6 @@ interface ActivityComponent {
     fun inject(fragment: LoginFragment)
     fun inject(fragment: BuyBagasFragment)
     fun inject(fragment: PaymentFragment)
-
+    fun inject(fragment: RegistrationFragment)
 
 }
