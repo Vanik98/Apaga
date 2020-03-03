@@ -41,7 +41,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
     private fun actionWithXmlViews() {
         findViewIds()
-        setViewParameters()
+        setNavigation()
         setButtonsClickListener()
     }
 
@@ -56,7 +56,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
     private fun setButtonsClickListener() {}
 
-    private fun setViewParameters() {
+    private fun setNavigation() {
         setSupportActionBar(toolbar)
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_payment, R.id.nav_buy_bags, R.id.nav_slideshow,

@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
 
 import com.example.apaga.R
-import com.example.apaga.di.MainFragmentsTypeKey
-import com.example.apaga.enums.MainFragmentsType
 import com.example.apaga.ui.address.AddressActivity
 import com.example.apaga.ui.base.BaseFragment
-import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.main.MainActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -21,7 +20,6 @@ import com.facebook.FacebookException
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import javax.inject.Inject
-import javax.inject.Provider
 
 
 class LoginFragment : BaseFragment(),LoginContract.View {
@@ -34,7 +32,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var emailRegistration: Button
     private lateinit var facebookRegistration: LoginButton
     private lateinit var callbackManager: CallbackManager
-
+    private lateinit var navController: NavController
     override fun setUp(view: View) {
         view.setOnClickListener{}
     }
@@ -64,15 +62,15 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         login = view.findViewById(R.id.btn_login)
         emailRegistration = view.findViewById(R.id.btn_email)
         facebookRegistration = view.findViewById(R.id.btn_facebook)
+        navController = findNavController((activity as MainActivity), R.id.main_navigation_fragment)
     }
-//    @Inject lateinit var map : Map<MainFragmentsType, BaseFragment>
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
             presenter.loginWithEmail(email.text.toString(), password.text.toString())
         }
         emailRegistration.setOnClickListener {
-//            (activity as MainActivity).replaceFragment(map.getValue(MainFragmentsType.REGISTRATION))
+            navController.navigate(R.id.registrationFragment)
         }
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {

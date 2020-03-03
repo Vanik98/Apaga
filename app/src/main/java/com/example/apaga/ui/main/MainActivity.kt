@@ -3,15 +3,22 @@ package com.example.apaga.ui.main
 import android.app.FragmentTransaction
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.base.BaseFragment
+import com.google.android.material.navigation.NavigationView
 import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainContract.View {
     @Inject
     lateinit var presenter: MainContract.Presenter
-    private lateinit var fragTrans: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +38,8 @@ class MainActivity : BaseActivity(), MainContract.View {
 //        presenter.accessTokenTracker()
     }
 
-    fun replaceFragment(baseFragment: BaseFragment) {
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, baseFragment)
-                .commit()
-    }
-
     private fun actionWithXmlViews() {
         findViewIds()
-        setViewParameters()
         setButtonsClickListener()
     }
 
@@ -54,6 +54,7 @@ class MainActivity : BaseActivity(), MainContract.View {
     private fun findViewIds() {
         print("")
     }
+
 
 
 }
