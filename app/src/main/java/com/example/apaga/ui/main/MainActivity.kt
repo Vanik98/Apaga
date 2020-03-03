@@ -38,13 +38,6 @@ class MainActivity : BaseActivity(), MainContract.View {
 //        presenter.accessTokenTracker()
     }
 
-
-    fun replaceFragment(baseFragment: BaseFragment) {
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.container, baseFragment)
-//                .commit()
-    }
-
     private fun actionWithXmlViews() {
         findViewIds()
         setButtonsClickListener()
