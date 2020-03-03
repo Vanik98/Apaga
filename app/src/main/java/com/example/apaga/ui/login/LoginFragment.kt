@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 import com.example.apaga.R
 import com.example.apaga.di.MainFragmentsTypeKey
@@ -34,7 +39,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var emailRegistration: Button
     private lateinit var facebookRegistration: LoginButton
     private lateinit var callbackManager: CallbackManager
-
+    private lateinit var navController: NavController
     override fun setUp(view: View) {
         view.setOnClickListener{}
     }
@@ -64,7 +69,9 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         login = view.findViewById(R.id.btn_login)
         emailRegistration = view.findViewById(R.id.btn_email)
         facebookRegistration = view.findViewById(R.id.btn_facebook)
+        navController = findNavController((activity as MainActivity), R.id.main_navigation_fragment)
     }
+
 //    @Inject lateinit var map : Map<MainFragmentsType, BaseFragment>
 
     private fun setButtonsClickListener() {
@@ -72,7 +79,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
             presenter.loginWithEmail(email.text.toString(), password.text.toString())
         }
         emailRegistration.setOnClickListener {
-//            (activity as MainActivity).replaceFragment(map.getValue(MainFragmentsType.REGISTRATION))
+            navController.navigate(R.id.registrationFragment)
         }
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {

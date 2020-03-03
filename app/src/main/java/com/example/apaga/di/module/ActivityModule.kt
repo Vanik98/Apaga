@@ -72,7 +72,7 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     @PerActivity
-    fun provideAddressresenter(presenter: AddressPresenter): AddressContract.Presenter = presenter
+    fun provideAddressPresenter(presenter: AddressPresenter): AddressContract.Presenter = presenter
 
     @Provides(type = Provides.Type.MAP)
     @MainFragmentsTypeKey(MainFragmentsType.LOGIN)

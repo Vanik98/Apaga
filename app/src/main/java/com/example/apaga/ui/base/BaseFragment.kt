@@ -14,12 +14,13 @@
  */
 package com.example.apaga.ui.base
 
-import android.app.Fragment
+
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import com.example.apaga.di.component.ActivityComponent
 
 abstract class BaseFragment : Fragment(), MvpView {
