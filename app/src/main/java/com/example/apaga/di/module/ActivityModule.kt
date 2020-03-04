@@ -16,6 +16,7 @@ package com.example.apaga.di.module
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apaga.di.ActivityContext
 import com.example.apaga.di.PerActivity
 import com.example.apaga.ui.address.AddressContract
@@ -28,6 +29,7 @@ import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
 import com.example.apaga.ui.main.MainContract
 import com.example.apaga.ui.main.MainPresenter
+import com.example.apaga.ui.notifications.NotificationsAdapter
 import com.example.apaga.ui.notifications.NotificationsContract
 import com.example.apaga.ui.notifications.NotificationsPresenter
 import com.example.apaga.ui.payment.PaymentContract
@@ -76,5 +78,14 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     fun provideNotificationsPresenter(presenter: NotificationsPresenter): NotificationsContract.Presenter = presenter
+
+    @Provides
+    fun provideNotificationsAdapter(context:Context): NotificationsAdapter =
+            NotificationsAdapter(context)
+
+    @Provides
+    fun provideLinearLayoutManagerAdapter(context:Context): LinearLayoutManager =
+            LinearLayoutManager(context)
+
 
 }
