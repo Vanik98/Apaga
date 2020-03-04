@@ -16,7 +16,8 @@
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
     <navigation
-        android:id="@+id/nav_graph_home" >
+        android:id="@+id/nav_graph_home"
+        app:startDestination="@id/nav_payment">
         <fragment
             android:id="@+id/nav_payment"
             android:name="com.example.apaga.ui.payment.PaymentFragment"
@@ -47,6 +48,11 @@
             android:name="com.example.apaga.ui.send.SendFragment"
             android:label="@string/menu_send"
             tools:layout="@layout/fragment_send" />
+        <fragment
+            android:id="@+id/notificationsFragment"
+            android:name="com.example.apaga.ui.notifications.NotificationsFragment"
+            android:label="fragment_notifications"
+            tools:layout="@layout/fragment_notifications" />
     </navigation>
     <activity
         android:id="@+id/addressActivity3"

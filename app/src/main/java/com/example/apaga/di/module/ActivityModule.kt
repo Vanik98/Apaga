@@ -80,12 +80,12 @@ class ActivityModule(activity: AppCompatActivity) {
     fun provideNotificationsPresenter(presenter: NotificationsPresenter): NotificationsContract.Presenter = presenter
 
     @Provides
-    fun provideNotificationsAdapter(context:Context): NotificationsAdapter =
-            NotificationsAdapter(context)
+    fun provideNotificationsAdapter(): NotificationsAdapter =
+            NotificationsAdapter(activity)
 
     @Provides
-    fun provideLinearLayoutManagerAdapter(context:Context): LinearLayoutManager =
-            LinearLayoutManager(context)
+    fun provideLinearLayoutManagerAdapter(): LinearLayoutManager =
+            LinearLayoutManager(activity)
 
 
 }

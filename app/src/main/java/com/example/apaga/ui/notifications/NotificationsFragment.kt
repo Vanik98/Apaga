@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
@@ -15,6 +16,8 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
     lateinit var layoutManager: LinearLayoutManager
     @Inject
     lateinit var adapter: NotificationsAdapter
+    @Inject
+    lateinit var presenter: NotificationsContract.Presenter
     private lateinit var recyclerView:RecyclerView
 
     override fun setUp(view: View) {
@@ -24,9 +27,12 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_notifications, container, false)
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
         recyclerView = view.findViewById(R.id.rv_notifications)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+        adapter.setData(listOf("vanik","q","qewq","Qeqwe"))
         return view
     }
 

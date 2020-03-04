@@ -13,6 +13,7 @@ import androidx.navigation.Navigation.findNavController
 import com.example.apaga.R
 import com.example.apaga.ui.address.AddressActivity
 import com.example.apaga.ui.base.BaseFragment
+import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.main.MainActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -100,8 +101,8 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     override fun openHomeActivity() {
         //        dialogUtils.showProgressBar(this)
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
-//        startActivity(Intent(activity, HomeActivity::class.java))
-        startActivity(Intent(activity, AddressActivity::class.java))
+        startActivity(Intent(activity, HomeActivity::class.java))
+//        startActivity(Intent(activity, AddressActivity::class.java))
     }
 }
 
