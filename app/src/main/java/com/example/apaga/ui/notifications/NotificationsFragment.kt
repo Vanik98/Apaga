@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
 import com.example.apaga.data.network.model.Notification
-import com.example.apaga.data.network.model.NotificationsType
+import com.example.apaga.data.network.model.NotificationType
 import com.example.apaga.ui.base.BaseFragment
 import javax.inject.Inject
+import kotlin.concurrent.fixedRateTimer
 
 class NotificationsFragment : BaseFragment(), NotificationsContract.View {
     @Inject
     lateinit var layoutManager: LinearLayoutManager
     @Inject
-    lateinit var groupAdapter: NotificationsGroupAdapter
+    lateinit var adapter: NotificationsAdapter
     @Inject
     lateinit var presenter: NotificationsContract.Presenter
     private lateinit var recyclerView:RecyclerView
@@ -30,11 +31,14 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
         val view = inflater.inflate(R.layout.fragment_notifications, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
-        recyclerView = view.findViewById(R.id.rv_notifications_group)
+        recyclerView = view.findViewById(R.id.rv_notifications)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = groupAdapter
-        groupAdapter.setData(listOf(NotificationsType("qwe", listOf(Notification("ASdasdasdasd"))),
-                NotificationsType("ssss", listOf(Notification("qweqweqweqw")))))
+        recyclerView.adapter = adapter
+        val groupList : List<NotificationType> = arrayListOf(
+                NotificationType("message", arrayListOf(Notification("hello my friend"))),
+                NotificationType("yaxq", arrayListOf(Notification("my ee"))))
+        adapter.setGroupData(groupList)
+        adapter.expandAllGroups()
         return view
     }
 
