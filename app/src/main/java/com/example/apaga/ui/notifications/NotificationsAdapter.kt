@@ -35,7 +35,7 @@ class NotificationsAdapter(
         this.groupList = groupList
         (groups as MutableList<NotificationType>).addAll(groupList)
         notifyGroupDataChanged()
-        notifyItemChanged(1)
+        notifyDataSetChanged()
     }
 
     inner class NotificationsGroupHolder (itemView: View) : GroupViewHolder(itemView){
