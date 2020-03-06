@@ -20,7 +20,16 @@ public class BaseExpandableRecyclerViewAdapter <GVH extends GroupViewHolder, CVH
         for (int i = 0; i < getGroups().size(); i++) {
             expandableList.expandedGroupIndexes[i] = false;
         }
+
     }
+//    public void notifyChildDataChanged(int position) {
+//        expandableList =
+//        expandableList.expandedGroupIndexes = new boolean[getGroups().get(position).getItems().size()];
+//        for (int i = 0; i < getGroups().get(position).getItems().size(); i++) {
+//            expandableList.ge = false;
+//        }
+//        getGroups().get().getItems()
+//    }
 
     @Override
     public GVH onCreateGroupViewHolder(ViewGroup parent, int viewType) {

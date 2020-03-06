@@ -26,9 +26,8 @@ class NotificationsAdapter(
     inner class NotificationsChildHolder (itemView: View) : ChildViewHolder(itemView){
         var ttt : TextView =  itemView.findViewById(R.id.t)
 
-         fun bindChild(position: Int){
-             setChildData(position)
-            ttt.text = childList[position].massage
+         fun bindChild(childItem : Notification){
+            ttt.text = childItem.massage
         }
     }
 
@@ -38,15 +37,12 @@ class NotificationsAdapter(
         notifyGroupDataChanged()
         notifyItemChanged(1)
     }
-    private fun setChildData(position: Int){
-        childList = groupList!![position].items
-    }
 
     inner class NotificationsGroupHolder (itemView: View) : GroupViewHolder(itemView){
         var ttt : TextView =  itemView.findViewById(R.id.tv_group)
 
-         fun bindGroup(position: Int){
-            ttt.text = groupList!![position]!!.title
+         fun bindGroup(nType: NotificationType){
+            ttt.text = nType.title
         }
     }
 
@@ -61,12 +57,19 @@ class NotificationsAdapter(
     }
 
     override fun onBindChildViewHolder(holder: NotificationsChildHolder, flatPosition: Int, group: ExpandableGroup<*>?, childIndex: Int) {
-        holder.bindChild(childIndex)
+        holder.bindChild(group!!.items[childIndex] as Notification)
     }
 
     override fun onBindGroupViewHolder(holder: NotificationsGroupHolder, flatPosition: Int, group: ExpandableGroup<*>?) {
-        holder.bindGroup(flatPosition)
+        holder.bindGroup(group as NotificationType)
     }
 
+    fun expandAllGroups() {
+        groups.forEachIndexed { groupIndex, group ->
+            if (isGroupExpanded(group).not()) {
+                onGroupClick(expandableList.getFlattenedGroupIndex(groupIndex))
+            }
+        }
+    }
 
 }
