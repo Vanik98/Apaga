@@ -2,7 +2,6 @@ package com.example.apaga.ui.notifications
 
 
 import android.content.Context
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +9,18 @@ import android.widget.TextView
 import com.example.apaga.R
 import com.example.apaga.data.network.model.Notification
 import com.example.apaga.data.network.model.NotificationType
-import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter
+import com.example.apaga.ui.base.BaseExpandableRecyclerViewAdapter
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 
+
 class NotificationsAdapter(
         val context:Context,
-        var groupList: List<NotificationType>?
+        var groupList: List<NotificationType>
 ) :
-        ExpandableRecyclerViewAdapter<NotificationsAdapter.NotificationsGroupHolder,
-        NotificationsAdapter.NotificationsChildHolder>(groupList) {
+        BaseExpandableRecyclerViewAdapter<NotificationsAdapter.NotificationsGroupHolder,
+                NotificationsAdapter.NotificationsChildHolder>(groupList) {
 
      lateinit var childList:MutableList<Notification>
     inner class NotificationsChildHolder (itemView: View) : ChildViewHolder(itemView){
@@ -34,6 +34,9 @@ class NotificationsAdapter(
 
     fun setGroupData(groupList:List<NotificationType>){
         this.groupList = groupList
+        (groups as MutableList<NotificationType>).addAll(groupList)
+        notifyGroupDataChanged()
+        notifyItemChanged(1)
     }
     private fun setChildData(position: Int){
         childList = groupList!![position].items
@@ -64,5 +67,6 @@ class NotificationsAdapter(
     override fun onBindGroupViewHolder(holder: NotificationsGroupHolder, flatPosition: Int, group: ExpandableGroup<*>?) {
         holder.bindGroup(flatPosition)
     }
+
 
 }
