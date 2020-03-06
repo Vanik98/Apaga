@@ -1,48 +1,75 @@
 package com.example.apaga.ui.notifications
 
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import com.example.apaga.R
-import com.example.apaga.ui.base.BaseAdapter
+import com.example.apaga.data.network.model.Notification
+import com.example.apaga.data.network.model.NotificationType
+import com.example.apaga.ui.base.BaseExpandableRecyclerViewAdapter
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
+import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
+import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 
-class NotificationsAdapter(val context:Context) : BaseAdapter<List<String>, NotificationsAdapter.NotificationsHolder>(diffCallback){
-    private lateinit var list :List<String>
-    companion object {
-        private val diffCallback: DiffUtil.ItemCallback<List<String>> = object : DiffUtil.ItemCallback<List<String>>() {
-            override fun areItemsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
-            return oldItem == newItem
-            }
 
-            override fun areContentsTheSame(oldItem: List<String>, newItem: List<String>): Boolean {
-            return oldItem == newItem
-            }
-        }
-    }
+class NotificationsAdapter(
+        val context:Context,
+        var groupList: List<NotificationType>
+) :
+        BaseExpandableRecyclerViewAdapter<NotificationsAdapter.NotificationsGroupHolder,
+                NotificationsAdapter.NotificationsChildHolder>(groupList) {
 
-    override fun setData(t: List<String>) {
-        list = t
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsHolder {
-        return NotificationsHolder(LayoutInflater.from(context)
-                .inflate(R.layout.holder_notifications,parent,false))
-    }
-
-    override fun onBindViewHolder(holder:NotificationsHolder, position: Int) {
-        holder.bind(position)
-    }
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
-    inner class NotificationsHolder (itemView: View) : BaseHolder(itemView){
+     lateinit var childList:MutableList<Notification>
+    inner class NotificationsChildHolder (itemView: View) : ChildViewHolder(itemView){
         var ttt : TextView =  itemView.findViewById(R.id.t)
-        override fun bind(position: Int){
-            ttt.text = list[position]
+
+         fun bindChild(childItem : Notification){
+            ttt.text = childItem.massage
         }
     }
+
+    fun setGroupData(groupList:List<NotificationType>){
+        this.groupList = groupList
+        (groups as MutableList<NotificationType>).addAll(groupList)
+        notifyGroupDataChanged()
+        notifyItemChanged(1)
+    }
+
+    inner class NotificationsGroupHolder (itemView: View) : GroupViewHolder(itemView){
+        var ttt : TextView =  itemView.findViewById(R.id.tv_group)
+
+         fun bindGroup(nType: NotificationType){
+            ttt.text = nType.title
+        }
+    }
+
+    override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): NotificationsGroupHolder {
+        return NotificationsGroupHolder(LayoutInflater.from(context)
+                .inflate(R.layout.holder_notifications_group_item,parent,false))
+    }
+
+    override fun onCreateChildViewHolder(parent: ViewGroup, viewType: Int): NotificationsChildHolder {
+       return NotificationsChildHolder(LayoutInflater.from(context)
+               .inflate(R.layout.holder_notifications_child_item,parent,false))
+    }
+
+    override fun onBindChildViewHolder(holder: NotificationsChildHolder, flatPosition: Int, group: ExpandableGroup<*>?, childIndex: Int) {
+        holder.bindChild(group!!.items[childIndex] as Notification)
+    }
+
+    override fun onBindGroupViewHolder(holder: NotificationsGroupHolder, flatPosition: Int, group: ExpandableGroup<*>?) {
+        holder.bindGroup(group as NotificationType)
+    }
+
+    fun expandAllGroups() {
+        groups.forEachIndexed { groupIndex, group ->
+            if (isGroupExpanded(group).not()) {
+                onGroupClick(expandableList.getFlattenedGroupIndex(groupIndex))
+            }
+        }
+    }
+
 }

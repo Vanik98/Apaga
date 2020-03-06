@@ -81,7 +81,7 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =
-            NotificationsAdapter(activity)
+            NotificationsAdapter(activity, arrayListOf())
 
     @Provides
     fun provideLinearLayoutManagerAdapter(): LinearLayoutManager =
