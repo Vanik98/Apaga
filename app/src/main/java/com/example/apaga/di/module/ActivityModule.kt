@@ -29,7 +29,8 @@ import com.example.apaga.ui.login.LoginContract
 import com.example.apaga.ui.login.LoginPresenter
 import com.example.apaga.ui.main.MainContract
 import com.example.apaga.ui.main.MainPresenter
-import com.example.apaga.ui.notifications.NotificationsAdapter
+import com.example.apaga.ui.notifications.NotificationsChildAdapter
+import com.example.apaga.ui.notifications.NotificationsGroupAdapter
 import com.example.apaga.ui.notifications.NotificationsContract
 import com.example.apaga.ui.notifications.NotificationsPresenter
 import com.example.apaga.ui.payment.PaymentContract
@@ -80,8 +81,12 @@ class ActivityModule(activity: AppCompatActivity) {
     fun provideNotificationsPresenter(presenter: NotificationsPresenter): NotificationsContract.Presenter = presenter
 
     @Provides
-    fun provideNotificationsAdapter(): NotificationsAdapter =
-            NotificationsAdapter(activity)
+    fun provideNotificationsGroupAdapter(): NotificationsGroupAdapter =
+            NotificationsGroupAdapter(activity)
+
+    @Provides
+    fun provideNotificationsChildAdapter(): NotificationsChildAdapter =
+            NotificationsChildAdapter(activity)
 
     @Provides
     fun provideLinearLayoutManagerAdapter(): LinearLayoutManager =

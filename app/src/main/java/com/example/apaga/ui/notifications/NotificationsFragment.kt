@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
+import com.example.apaga.data.network.model.Notification
+import com.example.apaga.data.network.model.NotificationsType
 import com.example.apaga.ui.base.BaseFragment
 import javax.inject.Inject
 
@@ -15,7 +16,7 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
     @Inject
     lateinit var layoutManager: LinearLayoutManager
     @Inject
-    lateinit var adapter: NotificationsAdapter
+    lateinit var groupAdapter: NotificationsGroupAdapter
     @Inject
     lateinit var presenter: NotificationsContract.Presenter
     private lateinit var recyclerView:RecyclerView
@@ -29,10 +30,11 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
         val view = inflater.inflate(R.layout.fragment_notifications, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
-        recyclerView = view.findViewById(R.id.rv_notifications)
+        recyclerView = view.findViewById(R.id.rv_notifications_group)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
-        adapter.setData(listOf("vanik","q","qewq","Qeqwe"))
+        recyclerView.adapter = groupAdapter
+        groupAdapter.setData(listOf(NotificationsType("qwe", listOf(Notification("ASdasdasdasd"))),
+                NotificationsType("ssss", listOf(Notification("qweqweqweqw")))))
         return view
     }
 
