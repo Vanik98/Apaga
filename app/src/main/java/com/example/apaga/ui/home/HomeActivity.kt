@@ -59,8 +59,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     private fun setNavigation() {
         setSupportActionBar(toolbar)
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_payment, R.id.nav_buy_bags, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send), drawerLayout)
+                R.id.nav_payment, R.id.nav_buy_bags), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
