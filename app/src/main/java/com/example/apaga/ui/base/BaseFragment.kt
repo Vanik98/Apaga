@@ -110,7 +110,7 @@ abstract class BaseFragment : Fragment(), MvpView {
     //    public void setUnBinder(Unbinder unBinder) {
 //        mUnBinder = unBinder;
 //    }
-    protected abstract fun setUp(view: View)
+    abstract fun setUp(view: View)
 
     override fun onDestroy() { //        if (mUnBinder != null) {
 //            mUnBinder.unbind();

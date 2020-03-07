@@ -11,6 +11,7 @@ import com.example.apaga.ui.notifications.NotificationsFragment
 import com.example.apaga.ui.payment.PaymentFragment
 import com.example.apaga.ui.registration.RegistrationFragment
 import com.example.apaga.ui.settings.SettingsActivity
+import com.example.apaga.ui.waste.WasteFragment
 import dagger.Component
 
 
@@ -29,4 +30,5 @@ interface ActivityComponent {
     fun inject(fragment: PaymentFragment)
     fun inject(fragment: RegistrationFragment)
     fun inject(fragment: NotificationsFragment)
+    fun inject(fragment: WasteFragment)
 }

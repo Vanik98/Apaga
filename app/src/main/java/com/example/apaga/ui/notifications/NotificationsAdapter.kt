@@ -11,39 +11,21 @@ import com.example.apaga.data.network.model.Notification
 import com.example.apaga.data.network.model.NotificationType
 import com.example.apaga.ui.base.BaseExpandableRecyclerViewAdapter
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
-import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder
-import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
-
 
 class NotificationsAdapter(
         val context:Context,
         var groupList: List<NotificationType>
-) :
-        BaseExpandableRecyclerViewAdapter<NotificationsAdapter.NotificationsGroupHolder,
-                NotificationsAdapter.NotificationsChildHolder>(groupList) {
+) : BaseExpandableRecyclerViewAdapter<
+        List<NotificationType>,
+        NotificationsAdapter.NotificationsGroupHolder,
+        NotificationsAdapter.NotificationsChildHolder
+        >(groupList) {
 
-     lateinit var childList:MutableList<Notification>
-    inner class NotificationsChildHolder (itemView: View) : ChildViewHolder(itemView){
-        var ttt : TextView =  itemView.findViewById(R.id.t)
-
-         fun bindChild(childItem : Notification){
-            ttt.text = childItem.massage
-        }
-    }
-
-    fun setGroupData(groupList:List<NotificationType>){
+    override fun setGroupData(groupList:List<NotificationType>){
         this.groupList = groupList
         (groups as MutableList<NotificationType>).addAll(groupList)
         notifyGroupDataChanged()
         notifyDataSetChanged()
-    }
-
-    inner class NotificationsGroupHolder (itemView: View) : GroupViewHolder(itemView){
-        var ttt : TextView =  itemView.findViewById(R.id.tv_group)
-
-         fun bindGroup(nType: NotificationType){
-            ttt.text = nType.title
-        }
     }
 
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): NotificationsGroupHolder {
@@ -64,6 +46,7 @@ class NotificationsAdapter(
         holder.bindGroup(group as NotificationType)
     }
 
+
     fun expandAllGroups() {
         groups.forEachIndexed { groupIndex, group ->
             if (isGroupExpanded(group).not()) {
@@ -72,4 +55,19 @@ class NotificationsAdapter(
         }
     }
 
+    inner class NotificationsGroupHolder (itemView: View) : BaseGroupHolder<NotificationType>(itemView){
+        var ttt : TextView =  itemView.findViewById(R.id.tv_group)
+
+        override fun bindGroup(groupItem: NotificationType){
+            ttt.text = groupItem.title
+        }
+    }
+
+    inner class NotificationsChildHolder (itemView: View) : BaseChildHolder<Notification>(itemView){
+        var ttt : TextView =  itemView.findViewById(R.id.t)
+
+        override fun bindChild(childItem : Notification){
+            ttt.text = childItem.massage
+        }
+    }
 }
