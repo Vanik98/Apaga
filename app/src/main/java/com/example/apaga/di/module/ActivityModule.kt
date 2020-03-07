@@ -37,6 +37,7 @@ import com.example.apaga.ui.payment.PaymentPresenter
 import com.example.apaga.ui.registration.RegistrationContract
 import com.example.apaga.ui.registration.RegistrationPresenter
 import com.example.apaga.ui.waste.WasteContract
+import com.example.apaga.ui.waste.WasteListAdapter
 import com.example.apaga.ui.waste.WastePresenter
 import dagger.Module
 import dagger.Provides
@@ -84,6 +85,8 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides
     fun provideWastePresenter(presenter: WastePresenter): WasteContract.Presenter = presenter
 
+    @Provides
+    fun provideWasteAdapter(): WasteListAdapter = WasteListAdapter(activity)
 
     @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =
