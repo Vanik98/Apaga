@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_payment">
+    app:startDestination="@id/qrScannerFragment">
 
     <fragment
         android:id="@+id/nav_payment"
@@ -27,4 +27,9 @@
         android:name="com.example.apaga.ui.waste.WasteFragment"
         android:label="fragment_waste"
         tools:layout="@layout/fragment_waste" />
+    <fragment
+        android:id="@+id/qrScannerFragment"
+        android:name="com.example.apaga.ui.qrscanner.QrScannerFragment"
+        android:label="fragment_qr_scanner"
+        tools:layout="@layout/fragment_qr_scanner" />
 </navigation>

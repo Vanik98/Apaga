@@ -31,6 +31,7 @@ abstract class BaseFragment : Fragment(), MvpView {
         setHasOptionsMenu(false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUp(view)

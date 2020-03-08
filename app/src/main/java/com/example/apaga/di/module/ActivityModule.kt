@@ -34,6 +34,8 @@ import com.example.apaga.ui.notifications.NotificationsContract
 import com.example.apaga.ui.notifications.NotificationsPresenter
 import com.example.apaga.ui.payment.PaymentContract
 import com.example.apaga.ui.payment.PaymentPresenter
+import com.example.apaga.ui.qrscanner.QrScannerContract
+import com.example.apaga.ui.qrscanner.QrScannerPresenter
 import com.example.apaga.ui.registration.RegistrationContract
 import com.example.apaga.ui.registration.RegistrationPresenter
 import com.example.apaga.ui.waste.WasteContract
@@ -87,6 +89,9 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     fun provideWasteAdapter(): WasteListAdapter = WasteListAdapter(activity)
+
+    @Provides
+    fun provideQrScannerPresenter(presenter:QrScannerPresenter): QrScannerContract.Presenter = presenter
 
     @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =
