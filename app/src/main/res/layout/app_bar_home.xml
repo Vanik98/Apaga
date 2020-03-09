@@ -23,6 +23,14 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/iv_toolbar_apaga_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/ic_dialog_alert" />
+                <ImageView
                     android:id="@+id/iv_toolbar_nav_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"

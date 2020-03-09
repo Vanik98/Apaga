@@ -47,7 +47,6 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         findViewIds()
         setNavigation()
         setButtonsClickListener()
-        ViewCompat.setLayoutDirection(navView,ViewCompat.LAYOUT_DIRECTION_RTL)
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
