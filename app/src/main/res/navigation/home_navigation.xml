@@ -18,18 +18,23 @@
         tools:layout="@layout/fragment_buy_bugs" />
 
     <fragment
-        android:id="@+id/notificationsFragment"
+        android:id="@+id/nav_notifications"
         android:name="com.example.apaga.ui.notifications.NotificationsFragment"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
-        android:id="@+id/wasteFragment"
+        android:id="@+id/nav_waste"
         android:name="com.example.apaga.ui.waste.WasteFragment"
         android:label="fragment_waste"
         tools:layout="@layout/fragment_waste" />
     <fragment
-        android:id="@+id/qrScannerFragment"
+        android:id="@+id/nav_qr_code_scanner"
         android:name="com.example.apaga.ui.qrscanner.QrScannerFragment"
         android:label="fragment_qr_scanner"
         tools:layout="@layout/fragment_qr_scanner" />
+    <activity
+        android:id="@+id/nav_settings"
+        android:name="com.example.apaga.ui.settings.SettingsActivity"
+        android:label="activity_settings"
+        tools:layout="@layout/activity_settings" />
 </navigation>
