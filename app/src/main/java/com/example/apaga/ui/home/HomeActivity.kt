@@ -61,8 +61,8 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     }
 
     private fun setButtonsClickListener() {
-        navIcon.setOnClickListener{
-            if(drawerLayout.isDrawerOpen(navView)){
+        navIcon.setOnClickListener {
+            if (drawerLayout.isDrawerOpen(navView)) {
                 drawerLayout.closeDrawer(navView)
             } else {
                 drawerLayout.openDrawer(navView)
@@ -70,12 +70,11 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         }
     }
 
-
     private fun setNavigation() {
         setSupportActionBar(toolbar)
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_payment,R.id.nav_scheduled_pickup, R.id.nav_buy_bags,
-                R.id.qr_scanner_view,R.id.nav_notifications,R.id.nav_settings,
+                R.id.nav_payment, R.id.nav_scheduled_pickup, R.id.nav_buy_bags,
+                R.id.qr_scanner_view, R.id.nav_notifications, R.id.nav_settings,
                 R.id.nav_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -86,7 +85,6 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 //                .setAction("Action", null).show()
 
     }
-
 
 
     override fun onSupportNavigateUp(): Boolean {
