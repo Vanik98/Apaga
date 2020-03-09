@@ -1,15 +1,11 @@
 package com.example.apaga.ui.qrscanner
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
-import com.example.apaga.ui.home.HomeActivity
-import com.example.apaga.ui.payment.PaymentContract
 import com.google.zxing.Result
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -18,19 +14,19 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import me.dm7.barcodescanner.zxing.ZXingScannerView
-import java.util.jar.Manifest
 import javax.inject.Inject
 
 class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerView.ResultHandler {
 
     @Inject
     lateinit var presenter:QrScannerContract.Presenter
+
     private lateinit var scannerView:ZXingScannerView
     override fun setUp(view: View) {
         view.setOnClickListener{}
 
     }
-    val cc =this
+    val fragmentContext = this
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
@@ -41,7 +37,7 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerV
                 .withPermission(android.Manifest.permission.CAMERA)
                 .withListener(object : PermissionListener{
                     override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                         scannerView.setResultHandler(cc)
+                         scannerView.setResultHandler(fragmentContext)
                          scannerView.startCamera()
                     }
 
