@@ -12,7 +12,7 @@ import com.example.apaga.ui.base.BaseFragment
 import com.example.apaga.ui.home.HomeActivity
 import javax.inject.Inject
 
-class BuyBagasFragment : BaseFragment(),BuyBagsContract.View {
+class BuyBagsFragment : BaseFragment(),BuyBagsContract.View {
 
     @Inject lateinit var presenter: BuyBagsContract.Presenter
 

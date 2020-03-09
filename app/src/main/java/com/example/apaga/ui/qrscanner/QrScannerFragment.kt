@@ -1,15 +1,11 @@
 package com.example.apaga.ui.qrscanner
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
-import com.example.apaga.ui.home.HomeActivity
-import com.example.apaga.ui.payment.PaymentContract
 import com.google.zxing.Result
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -18,8 +14,9 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import me.dm7.barcodescanner.zxing.ZXingScannerView
-import java.util.jar.Manifest
+import java.lang.reflect.Executable
 import javax.inject.Inject
+
 
 class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerView.ResultHandler {
 
@@ -37,6 +34,7 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerV
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         scannerView = view.findViewById(R.id.qr_scanner_view)
+
         Dexter.withActivity(activity)
                 .withPermission(android.Manifest.permission.CAMERA)
                 .withListener(object : PermissionListener{
@@ -53,7 +51,7 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerV
                         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
                 })
-                .check();
+                .check()
         return view
     }
 
