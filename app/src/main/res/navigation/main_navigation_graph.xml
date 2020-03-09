@@ -9,12 +9,29 @@
         android:id="@+id/loginFragment"
         android:name="com.example.apaga.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_addressActivity3"
+            app:destination="@id/addressActivity3" />
+        <action
+            android:id="@+id/action_loginFragment_to_nav_graph_home"
+            app:destination="@id/nav_graph_home" />
+    </fragment>
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.apaga.ui.registration.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_addressActivity3"
+            app:destination="@id/addressActivity3" />
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <navigation
         android:id="@+id/nav_graph_home"
         app:startDestination="@id/nav_payment">
@@ -29,38 +46,31 @@
             android:label="@string/menu_buy_bags"
             tools:layout="@layout/fragment_buy_bugs" />
         <fragment
-            android:id="@+id/nav_slideshow"
-            android:name="com.example.apaga.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_slideshow"
-            tools:layout="@layout/fragment_slideshow" />
-        <fragment
-            android:id="@+id/nav_tools"
-            android:name="com.example.apaga.ui.tools.ToolsFragment"
-            android:label="@string/menu_tools"
-            tools:layout="@layout/fragment_tools" />
-        <fragment
-            android:id="@+id/nav_share"
-            android:name="com.example.apaga.ui.share.ShareFragment"
-            android:label="@string/menu_share"
-            tools:layout="@layout/fragment_share" />
-        <fragment
-            android:id="@+id/nav_send"
-            android:name="com.example.apaga.ui.send.SendFragment"
-            android:label="@string/menu_send"
-            tools:layout="@layout/fragment_send" />
-        <fragment
-            android:id="@+id/notificationsFragment"
+            android:id="@+id/nav_notifications"
             android:name="com.example.apaga.ui.notifications.NotificationsFragment"
             android:label="fragment_notifications"
             tools:layout="@layout/fragment_notifications" />
+        <fragment
+            android:id="@+id/nav_waste"
+            android:name="com.example.apaga.ui.waste.WasteFragment"
+            android:label="fragment_waste"
+            tools:layout="@layout/fragment_waste" />
+        <fragment
+            android:id="@+id/nav_qr_code_scanner"
+            android:name="com.example.apaga.ui.qrscanner.QrScannerFragment"
+            android:label="fragment_qr_scanner"
+            tools:layout="@layout/fragment_qr_scanner" />
+        <activity
+            android:id="@+id/nav_settings"
+            android:name="com.example.apaga.ui.settings.SettingsActivity"
+            android:label="activity_settings"
+            tools:layout="@layout/activity_settings" />
+        <action
+            android:id="@+id/action_global_addressActivity3"
+            app:destination="@id/addressActivity3" />
     </navigation>
     <activity
         android:id="@+id/addressActivity3"
         android:name="com.example.apaga.ui.address.AddressActivity"
         android:label="AddressActivity" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.apaga.ui.main.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
 </navigation>

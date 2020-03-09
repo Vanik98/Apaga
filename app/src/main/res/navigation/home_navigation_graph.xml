@@ -37,4 +37,8 @@
         android:name="com.example.apaga.ui.settings.SettingsActivity"
         android:label="activity_settings"
         tools:layout="@layout/activity_settings" />
+    <activity
+        android:id="@+id/addressActivity"
+        android:name="com.example.apaga.ui.address.AddressActivity"
+        android:label="AddressActivity" />
 </navigation>
