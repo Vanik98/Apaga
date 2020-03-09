@@ -17,7 +17,6 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView
 import java.lang.reflect.Executable
 import javax.inject.Inject
 
-
 class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerView.ResultHandler {
 
     @Inject
@@ -27,19 +26,18 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerV
         view.setOnClickListener{}
 
     }
-    val cc =this
+    val fragmentContext = this
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         scannerView = view.findViewById(R.id.qr_scanner_view)
-
         Dexter.withActivity(activity)
                 .withPermission(android.Manifest.permission.CAMERA)
                 .withListener(object : PermissionListener{
                     override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                         scannerView.setResultHandler(cc)
+                         scannerView.setResultHandler(fragmentContext)
                          scannerView.startCamera()
                     }
 

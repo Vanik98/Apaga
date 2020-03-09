@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
 import com.example.apaga.R
+import javax.inject.Inject
 
-class DialogUtils {
+class DialogUtils @Inject constructor(private val dialog:Dialog){
+
     fun showConfirmationDialog(context: Context, title: String?, message: String?,
                                negativeClickListener: View.OnClickListener?,
                                positiveClickListener: View.OnClickListener?) {
@@ -59,8 +61,7 @@ class DialogUtils {
 
     }
 
-    fun showProgressBar(context: Context) {
-        val dialog = Dialog(context)
+    fun showProgressBar() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_loading_progressbar)
@@ -71,5 +72,10 @@ class DialogUtils {
         }
 
         dialog.show()
+    }
+    fun dialogDismis(){
+        if(dialog.isShowing){
+            dialog.dismiss()
+        }
     }
 }
