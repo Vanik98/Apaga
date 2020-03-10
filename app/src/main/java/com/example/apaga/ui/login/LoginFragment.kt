@@ -27,7 +27,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
 
     @Inject
     lateinit var presenter:LoginContract.Presenter
-    private lateinit var email: EditText
+    private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
     private lateinit var emailRegistration: Button
@@ -59,21 +59,21 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     }
 
     private fun findViewIds(view: View) {
-        email = view.findViewById(R.id.et_email)
+        username = view.findViewById(R.id.et_username)
         password = view.findViewById(R.id.et_password)
         login = view.findViewById(R.id.btn_login)
-        emailRegistration = view.findViewById(R.id.btn_email)
+//        emailRegistration = view.findViewById(R.id.btn_email)
         facebookRegistration = view.findViewById(R.id.btn_facebook)
         navController = findNavController((activity as MainActivity), R.id.main_navigation_fragment)
     }
 
     private fun setButtonsClickListener() {
         login.setOnClickListener {
-            presenter.loginWithEmail(email.text.toString(), password.text.toString())
+            presenter.loginWithEmail(username.text.toString(), password.text.toString())
         }
-        emailRegistration.setOnClickListener {
-            navController.navigate(R.id.registrationFragment)
-        }
+//        emailRegistration.setOnClickListener {
+//            navController.navigate(R.id.registrationFragment)
+//        }
         facebookRegistration.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 // App code

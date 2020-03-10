@@ -33,5 +33,13 @@
     <string name="menu_logout">Logout</string>
     <string name="bag_id">Bag Id</string>
     <string name="no_qr_code">NO QR CODE</string>
+    <string name="welcome_text">Welcome to SmartApaga</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password ?</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="or">or</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_police">Privacy Police</string>
 
 </resources>

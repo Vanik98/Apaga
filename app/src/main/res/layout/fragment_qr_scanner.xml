@@ -47,9 +47,9 @@
 
     <EditText
         android:id="@+id/textView8"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="32dp"
         android:hint="@string/bag_id"
         app:layout_constraintBottom_toTopOf="@+id/button3"
