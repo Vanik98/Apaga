@@ -1,6 +1,7 @@
 package com.example.apaga.ui.qrscanner
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,9 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
         scannerView.isFlashButtonVisible = false
         scanner = activity?.let { CodeScanner(it,scannerView) }!!
         scanner.setDecodeCallback {
+            Log.i("vvv",it.text)
             activity!!.runOnUiThread{
+
         }
             scannerView.setOnClickListener{
                 scanner.startPreview()
