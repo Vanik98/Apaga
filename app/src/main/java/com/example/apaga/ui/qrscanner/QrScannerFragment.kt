@@ -10,6 +10,7 @@ import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
 import javax.inject.Inject
 
+
 class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
 
     @Inject
@@ -27,6 +28,8 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         scannerView = view.findViewById(R.id.qr_scanner_view)
+        scannerView.isAutoFocusButtonVisible = false
+        scannerView.isFlashButtonVisible = false
         scanner = activity?.let { CodeScanner(it,scannerView) }!!
         scanner.setDecodeCallback {
             activity!!.runOnUiThread{
@@ -43,7 +46,10 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
         scanner.startPreview()
     }
 
-
+     override fun onPause() {
+        scanner.releaseResources()
+        super.onPause()
+    }
 
 
 }
