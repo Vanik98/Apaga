@@ -1,27 +1,23 @@
 package com.example.apaga.ui.qrscanner
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.budiyev.android.codescanner.CodeScanner
+import com.budiyev.android.codescanner.CodeScannerView
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
-import com.google.zxing.Result
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.single.PermissionListener
-import me.dm7.barcodescanner.zxing.ZXingScannerView
 import javax.inject.Inject
 
-class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerView.ResultHandler {
+
+class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
 
     @Inject
     lateinit var presenter:QrScannerContract.Presenter
-
-    private lateinit var scannerView:ZXingScannerView
+    private lateinit var scanner:CodeScanner
+    private lateinit var scannerView:CodeScannerView
     override fun setUp(view: View) {
         view.setOnClickListener{}
 
@@ -33,34 +29,29 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View, ZXingScannerV
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         scannerView = view.findViewById(R.id.qr_scanner_view)
-        Dexter.withActivity(activity)
-                .withPermission(android.Manifest.permission.CAMERA)
-                .withListener(object : PermissionListener{
-                    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                         scannerView.setResultHandler(fragmentContext)
-                         scannerView.startCamera()
-                    }
+        scannerView.isAutoFocusButtonVisible = false
+        scannerView.isFlashButtonVisible = false
+        scanner = activity?.let { CodeScanner(it,scannerView) }!!
+        scanner.setDecodeCallback {
+            Log.i("vvv",it.text)
+            activity!!.runOnUiThread{
 
-                    override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest?, token: PermissionToken?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-
-                    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-                })
-                .check();
+        }
+            scannerView.setOnClickListener{
+                scanner.startPreview()
+            }
+        }
         return view
     }
 
-
-    override fun onDestroy() {
-        scannerView.stopCamera()
-        super.onDestroy()
+    override fun onResume() {
+        super.onResume()
+        scanner.startPreview()
     }
 
-    override fun handleResult(rawResult: Result?) {
-        print("ara xi")
+     override fun onPause() {
+        scanner.releaseResources()
+        super.onPause()
     }
 
 
