@@ -55,20 +55,20 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
-        navIcon = findViewById(R.id.iv_toolbar_nav_icon)
+//        navIcon = findViewById(R.id.iv_toolbar_nav_icon)
         navController = findNavController(R.id.nav_host_fragment)
 //        nameHeader = navView.findViewById(R.id.tv_nav_header_email)
 //        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
     }
 
     private fun setButtonsClickListener() {
-        navIcon.setOnClickListener {
-            if (drawerLayout.isDrawerOpen(navView)) {
-                drawerLayout.closeDrawer(navView)
-            } else {
-                drawerLayout.openDrawer(navView)
-            }
-        }
+//        navIcon.setOnClickListener {
+//            if (drawerLayout.isDrawerOpen(navView)) {
+//                drawerLayout.closeDrawer(navView)
+//            } else {
+//                drawerLayout.openDrawer(navView)
+//            }
+//        }
     }
 
     private fun setNavigation() {

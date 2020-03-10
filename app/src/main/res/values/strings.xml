@@ -31,5 +31,7 @@
     <string name="menu_qr_code_scanner">Qr Code Scanner</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_logout">Logout</string>
+    <string name="bag_id">Bag Id</string>
+    <string name="no_qr_code">NO QR CODE</string>
 
 </resources>
