@@ -3,7 +3,7 @@ package com.example.apaga.di.component
 import com.example.apaga.di.PerActivity
 import com.example.apaga.di.module.ActivityModule
 import com.example.apaga.ui.address.AddressActivity
-import com.example.apaga.ui.buybags.BuyBagasFragment
+import com.example.apaga.ui.buybags.BuyBagsFragment
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.login.LoginFragment
 import com.example.apaga.ui.main.MainActivity
@@ -27,7 +27,7 @@ interface ActivityComponent {
     fun inject(activity: SettingsActivity)
     //fragments
     fun inject(fragment: LoginFragment)
-    fun inject(fragment: BuyBagasFragment)
+    fun inject(fragment: BuyBagsFragment)
     fun inject(fragment: PaymentFragment)
     fun inject(fragment: RegistrationFragment)
     fun inject(fragment: NotificationsFragment)

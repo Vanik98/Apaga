@@ -2,8 +2,11 @@ package com.example.apaga.ui.home
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -25,6 +28,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
     private lateinit var navController: NavController
+    private lateinit var navIcon: ImageView
     private lateinit var nameHeader: TextView
     private lateinit var emailHeader: TextView
 
@@ -44,23 +48,35 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         findViewIds()
         setNavigation()
         setButtonsClickListener()
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     private fun findViewIds() {
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
+        navIcon = findViewById(R.id.iv_toolbar_nav_icon)
         navController = findNavController(R.id.nav_host_fragment)
 //        nameHeader = navView.findViewById(R.id.tv_nav_header_email)
 //        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
     }
 
-    private fun setButtonsClickListener() {}
+    private fun setButtonsClickListener() {
+        navIcon.setOnClickListener {
+            if (drawerLayout.isDrawerOpen(navView)) {
+                drawerLayout.closeDrawer(navView)
+            } else {
+                drawerLayout.openDrawer(navView)
+            }
+        }
+    }
 
     private fun setNavigation() {
         setSupportActionBar(toolbar)
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_payment, R.id.nav_buy_bags), drawerLayout)
+                R.id.nav_payment, R.id.nav_scheduled_pickup, R.id.nav_buy_bags,
+                R.id.qr_scanner_view, R.id.nav_notifications, R.id.nav_settings,
+                R.id.nav_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -71,11 +87,6 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.home, menu)
-        return true
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
