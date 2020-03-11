@@ -45,7 +45,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
             requestOptions.dontAnimate()
         }
         val b = Bundle()
-        b.putString("fields","first_name,last_name,email,id")
+        b.putString("fields","first_name,last_name,logo_email,id")
         request.parameters = b
         request.executeAsync()
         view.openHomeActivity()

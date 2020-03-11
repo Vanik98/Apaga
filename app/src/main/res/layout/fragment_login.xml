@@ -123,7 +123,7 @@
         android:layout_width="331dp"
         android:layout_height="230dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/welcome_logo"
+        android:src="@drawable/logo_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"

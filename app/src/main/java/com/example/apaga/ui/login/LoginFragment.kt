@@ -55,7 +55,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     }
 
     private fun setViewParameters(){
-        facebookRegistration.setReadPermissions(listOf("email", "public_profile"))
+        facebookRegistration.setReadPermissions(listOf("logo_email", "public_profile"))
     }
 
     private fun findViewIds(view: View) {
