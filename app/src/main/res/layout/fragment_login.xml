@@ -4,7 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@color/backgroundColor"
+    android:id="@+id/sv_login"
+    >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +20,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/welcome_text"
         android:textColor="@color/textColor"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,13 +29,13 @@
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="@color/textColorDark"
         android:hint="@string/username"
         android:textCursorDrawable="@drawable/color_cursor"
-        android:backgroundTint="@color/textColorDark"
+        android:textSize="17sp"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,12 +44,13 @@
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/password"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/textColorDark"
+        android:hint="@string/password"
+        android:textSize="17sp"
         android:textCursorDrawable="@drawable/color_cursor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +60,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -68,24 +72,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:text="Facebook" />
+            android:visibility="gone" />
 
-        <Button
-            android:id="@+id/button5"
+        <ImageView
+            android:id="@+id/iv_fb_sign_in"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:text="Emal"
-            tools:layout_editor_absoluteX="261dp"
-            tools:layout_editor_absoluteY="567dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/logo_fb" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_email" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_registration"
+        android:id="@+id/tv_sign_in_versions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/sign_up"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,13 +102,14 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rectangle_buttons"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/dark_buttons_background"
         android:text="Login"
         android:textColor="@color/textColorLight"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -112,17 +121,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/or"
-        android:textSize="17sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_registration" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_in_versions" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="331dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/logo_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
@@ -133,12 +141,11 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="@string/forgot_password"
         android:textColor="@color/textColorDark"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <LinearLayout
