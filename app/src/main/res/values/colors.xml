@@ -12,4 +12,5 @@
     <color name="textColor">#9FCD4F</color>
     <color name="toolBarColor">#ffffff</color>
     <color name="backgroundColor">#ffffff</color>
+    <color name="textColorTitleDark">#282F39</color>
 </resources>

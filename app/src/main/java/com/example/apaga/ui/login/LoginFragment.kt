@@ -113,8 +113,8 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     override fun openHomeActivity() {
         //        dialogUtils.showProgressBar(this)
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
-        startActivity(Intent(activity, HomeActivity::class.java))
-//        startActivity(Intent(activity, AddressActivity::class.java))
+//        startActivity(Intent(activity, HomeActivity::class.java))
+        startActivity(Intent(activity, AddressActivity::class.java))
     }
 }
 
