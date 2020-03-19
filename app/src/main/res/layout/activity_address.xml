@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -49,146 +48,125 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/textColorDark"
+        android:hint="@string/username"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline2"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/map" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.46" />
-            <EditText
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="540dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/textColorDark"
-                android:hint="@string/username"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/textColorDark"
+        android:hint="@string/username"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <EditText
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/textColorDark"
-                android:hint="@string/username"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/dark_buttons_background"
+        android:text="Confirm"
+        android:textColor="@color/textColorLight"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/dark_buttons_background"
-                android:text="Confirm"
-                android:textColor="@color/textColorLight"
-                android:textSize="17sp"
-                app:layout_constraintBottom_toTopOf="@+id/include"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id" />
+    <LinearLayout
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-            <LinearLayout
-                android:id="@+id/id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
+        <EditText
+            android:id="@+id/et_bdg"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/textColorDark"
+            android:gravity="center"
+            android:hint="@string/bdg"
+            android:inputType="text"
+            android:maxLength="5"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="17sp" />
 
-                <EditText
-                    android:id="@+id/et_bdg"
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/textColorDark"
-                    android:gravity="center"
-                    android:hint="@string/bdg"
-                    android:inputType="text"
-                    android:maxLength="5"
-                    android:textCursorDrawable="@drawable/color_cursor"
-                    android:textSize="17sp" />
+        <EditText
+            android:id="@+id/et_apt"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="@color/textColorDark"
+            android:gravity="center"
+            android:hint="@string/apt"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="17sp" />
 
-                <EditText
-                    android:id="@+id/et_apt"
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/textColorDark"
-                    android:gravity="center"
-                    android:hint="@string/apt"
-                    android:inputType="number"
-                    android:maxLength="1"
-                    android:textCursorDrawable="@drawable/color_cursor"
-                    android:textSize="17sp" />
+        <EditText
+            android:id="@+id/et_floor"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="@color/textColorDark"
+            android:gravity="center"
+            android:hint="@string/floor"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="17sp" />
 
-                <EditText
-                    android:id="@+id/et_floor"
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/textColorDark"
-                    android:gravity="center"
-                    android:hint="@string/floor"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:textCursorDrawable="@drawable/color_cursor"
-                    android:textSize="17sp" />
+        <EditText
+            android:id="@+id/et_entr"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:backgroundTint="@color/textColorDark"
+            android:gravity="center"
+            android:hint="@string/entr"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="17sp" />
 
-                <EditText
-                    android:id="@+id/et_entr"
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:backgroundTint="@color/textColorDark"
-                    android:gravity="center"
-                    android:hint="@string/entr"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:textCursorDrawable="@drawable/color_cursor"
-                    android:textSize="17sp" />
+    </LinearLayout>
 
-            </LinearLayout>
-
-            <include
-                android:id="@+id/include"
-                layout="@layout/layout_terms_and_privacy_policy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <include
+        android:id="@+id/include"
+        layout="@layout/layout_terms_and_privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
