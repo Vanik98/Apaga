@@ -44,5 +44,6 @@
     <string name="apt">Apt</string>
     <string name="floor">Floor</string>
     <string name="entr">Entr</string>
+    <string name="schedule_a_pickup">SCEDULE A PICUP</string>
 
 </resources>

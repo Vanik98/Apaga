@@ -32,6 +32,7 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         confirm = findViewById(R.id.btn_confirm)
         confirm.setOnClickListener{
             startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
     }
 

@@ -115,6 +115,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
 //        dialogUtils.showConfirmationDialog(this,null,"asdasd",null,null)
 //        startActivity(Intent(activity, HomeActivity::class.java))
         startActivity(Intent(activity, AddressActivity::class.java))
+        activity!!.finish()
     }
 }
 
