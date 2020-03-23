@@ -1,5 +1,6 @@
 package com.example.apaga.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
@@ -70,6 +71,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 //        }
     }
 
+    @SuppressLint("RestrictedApi")
     private fun setNavigation() {
         setSupportActionBar(toolbar)
         appBarConfiguration = AppBarConfiguration(setOf(
@@ -86,6 +88,11 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.home, menu)
+        return true
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
