@@ -1,13 +1,10 @@
 package com.example.apaga.ui.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -17,7 +14,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
-import com.example.apaga.utils.DialogUtils
 import com.google.android.material.navigation.NavigationView
 import javax.inject.Inject
 
@@ -71,17 +67,16 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 //        }
     }
 
-    @SuppressLint("RestrictedApi")
+
     private fun setNavigation() {
         setSupportActionBar(toolbar)
-        appBarConfiguration = AppBarConfiguration(setOf(
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_dashboard,
                 R.id.nav_payment, R.id.nav_scheduled_pickup, R.id.nav_buy_bags,
                 R.id.qr_scanner_view, R.id.nav_notifications, R.id.nav_settings,
                 R.id.nav_logout), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
     private fun showSnackbar() {
 //        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
@@ -90,7 +85,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.home, menu)
+        menuInflater.inflate(R.menu.home_options, menu)
         return true
     }
 

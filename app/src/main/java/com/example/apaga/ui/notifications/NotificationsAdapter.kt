@@ -30,12 +30,12 @@ class NotificationsAdapter(
 
     override fun onCreateGroupViewHolder(parent: ViewGroup, viewType: Int): NotificationsGroupHolder {
         return NotificationsGroupHolder(LayoutInflater.from(context)
-                .inflate(R.layout.holder_notifications_group_item,parent,false))
+                .inflate(R.layout.holder_notifications_group,parent,false))
     }
 
     override fun onCreateChildViewHolder(parent: ViewGroup, viewType: Int): NotificationsChildHolder {
        return NotificationsChildHolder(LayoutInflater.from(context)
-               .inflate(R.layout.holder_notifications_child_item,parent,false))
+               .inflate(R.layout.holder_notifications_child,parent,false))
     }
 
     override fun onBindChildViewHolder(holder: NotificationsChildHolder, flatPosition: Int, group: ExpandableGroup<*>?, childIndex: Int) {

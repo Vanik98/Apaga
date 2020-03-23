@@ -28,7 +28,7 @@ class WasteListAdapter(private val context:Context): BaseListAdapter<String, Was
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WasteHolder {
         return WasteHolder(LayoutInflater.from(context)
-                .inflate(R.layout.holder_waste_item,parent,false))
+                .inflate(R.layout.holder_waste,parent,false))
     }
 
     override fun onBindViewHolder(holder: WasteHolder, position: Int) {

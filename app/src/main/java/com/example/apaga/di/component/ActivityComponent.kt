@@ -4,6 +4,7 @@ import com.example.apaga.di.PerActivity
 import com.example.apaga.di.module.ActivityModule
 import com.example.apaga.ui.address.AddressActivity
 import com.example.apaga.ui.buybags.BuyBagsFragment
+import com.example.apaga.ui.dashboard.DashboardFragment
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.login.LoginFragment
 import com.example.apaga.ui.main.MainActivity
@@ -33,4 +34,5 @@ interface ActivityComponent {
     fun inject(fragment: NotificationsFragment)
     fun inject(fragment: WasteFragment)
     fun inject(fragment: QrScannerFragment)
+    fun inject(fragment: DashboardFragment)
 }

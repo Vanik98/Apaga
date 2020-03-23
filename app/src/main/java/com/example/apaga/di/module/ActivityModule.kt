@@ -11,6 +11,9 @@ import com.example.apaga.ui.address.AddressContract
 import com.example.apaga.ui.address.AddressPresenter
 import com.example.apaga.ui.buybags.BuyBagsContract
 import com.example.apaga.ui.buybags.BuyBagsPresenter
+import com.example.apaga.ui.dashboard.DashboardAdapter
+import com.example.apaga.ui.dashboard.DashboardContract
+import com.example.apaga.ui.dashboard.DashboardPresenter
 import com.example.apaga.ui.home.HomeContract
 import com.example.apaga.ui.home.HomePresenter
 import com.example.apaga.ui.login.LoginContract
@@ -83,8 +86,15 @@ class ActivityModule(activity: AppCompatActivity) {
     fun provideQrScannerPresenter(presenter:QrScannerPresenter): QrScannerContract.Presenter = presenter
 
     @Provides
+    fun provideDashboardPresenter(presenter:DashboardPresenter): DashboardContract.Presenter = presenter
+
+    @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =
             NotificationsAdapter(activity, arrayListOf())
+
+    @Provides
+    fun provideDashboardAdapter(): DashboardAdapter =
+            DashboardAdapter(activity)
 
     @Provides
     fun provideLinearLayoutManagerAdapter(): LinearLayoutManager =

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_payment">
+    app:startDestination="@id/nav_dashboard">
 
     <fragment
         android:id="@+id/nav_payment"
@@ -41,4 +41,9 @@
         android:id="@+id/addressActivity"
         android:name="com.example.apaga.ui.address.AddressActivity"
         android:label="AddressActivity" />
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.apaga.ui.dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 </navigation>
