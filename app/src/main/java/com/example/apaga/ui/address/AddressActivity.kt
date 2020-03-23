@@ -1,9 +1,12 @@
 package com.example.apaga.ui.address
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
+import com.example.apaga.ui.home.HomeActivity
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,7 +21,7 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
 
     @Inject lateinit var presenter: AddressPresenter
-
+    lateinit var confirm : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
@@ -26,6 +29,10 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        confirm = findViewById(R.id.btn_confirm)
+        confirm.setOnClickListener{
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 
     override fun setUp() {
@@ -40,4 +47,5 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
+
 }

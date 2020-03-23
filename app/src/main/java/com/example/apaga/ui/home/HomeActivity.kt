@@ -48,7 +48,6 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         findViewIds()
         setNavigation()
         setButtonsClickListener()
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     private fun findViewIds() {

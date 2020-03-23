@@ -2,6 +2,8 @@ package com.example.apaga.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import javax.inject.Inject
@@ -9,10 +11,11 @@ import javax.inject.Inject
 class MainActivity : BaseActivity(), MainContract.View {
     @Inject
     lateinit var presenter: MainContract.Presenter
-
+    lateinit var background:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         activityComponent.inject(this)
         presenter.onAttach(this)
         actionWithXmlViews()
@@ -31,6 +34,7 @@ class MainActivity : BaseActivity(), MainContract.View {
     private fun actionWithXmlViews() {
         findViewIds()
         setButtonsClickListener()
+        setViewParameters()
     }
 
     private fun setButtonsClickListener() {
@@ -38,11 +42,11 @@ class MainActivity : BaseActivity(), MainContract.View {
     }
 
     private fun setViewParameters() {
-        print("")
+        background.visibility = View.INVISIBLE
     }
 
     private fun findViewIds() {
-        print("")
+        background = findViewById(R.id.im_apaga_background)
     }
 
 
