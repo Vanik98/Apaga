@@ -3,14 +3,18 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="buttonColorDark">#0C8040</color>
-    <color name="buttonColorDarkChange">#B30C8040</color>
-    <color name="buttonColorLight">#9FCD4F</color>
-    <color name="buttonColorLightChange">#B39FCD4F</color>
+    <color name="turnButtonColorDark">#0C8040</color>
+    <color name="turnButtonColorDarkChange">#B30C8040</color>
+    <color name="turnButtonColorLight">#9FCD4F</color>
+    <color name="turnButtonColorLightChange">#B39FCD4F</color>
+    <color name="disableButtonColorDark">#A71407</color>
+    <color name="disableButtonColorDarkChange">#B3A71407</color>
     <color name="textColorLight">#ffffff</color>
     <color name="textColorDark">#0C8040</color>
     <color name="textColor">#9FCD4F</color>
     <color name="toolBarColor">#ffffff</color>
     <color name="backgroundColor">#ffffff</color>
+    <color name="backgroundColorDark">#B7B7B7</color>
     <color name="textColorTitleDark">#282F39</color>
+
 </resources>

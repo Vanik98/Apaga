@@ -3,7 +3,7 @@
   <item android:state_pressed="true">
     <shape >
       <solid
-          android:color="@color/turnButtonColorLightChange" />
+          android:color="@color/disableButtonColorDarkChange" />
       <corners
           android:radius="60dp" />
     </shape>
@@ -11,7 +11,7 @@
   <item >
     <shape >
       <solid
-          android:color="@color/turnButtonColorLight" />
+          android:color="@color/disableButtonColorDark" />
       <corners
           android:radius="60dp" />
     </shape>

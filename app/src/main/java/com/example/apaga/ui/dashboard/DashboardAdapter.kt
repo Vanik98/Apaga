@@ -35,6 +35,10 @@ class DashboardAdapter(private val context: Context) :
         holder.bind(list[position])
     }
 
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
     inner class DashboardHolder(itemView: View) : BaseListAdapter.BaseHolder<String>(itemView) {
 
         override fun bind(item: String) {

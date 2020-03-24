@@ -5,4 +5,9 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dashboard_list_item_height">300dp</dimen>
+    <dimen name="dashboard_iv_calendar_width">24dp</dimen>
+    <dimen name="dashboard_iv_calendar_height">25dp</dimen>
+    <dimen name="dashboard_iv_clock_width">28dp</dimen>
+    <dimen name="dashboard_iv_clock_height">29dp</dimen>
 </resources>

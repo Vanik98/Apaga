@@ -45,5 +45,13 @@
     <string name="floor">Floor</string>
     <string name="entr">Entr</string>
     <string name="schedule_a_pickup">SCEDULE A PICUP</string>
+    <string name="fragment_dashboard">Dashboard</string>
+    <string name="note">Note:</string>
+    <string name="bags">Bags</string>
+    <string name="pickup_description">Pickup description</string>
+    <string name="address">Address</string>
+    <string name="cancel_this_pickup">Cancel This Pickup</string>
+    <string name="edit_this_pickup">Edit this Pickup</string>
+    <string name="menu_waste">waste</string>
 
 </resources>
