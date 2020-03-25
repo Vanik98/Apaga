@@ -56,7 +56,7 @@ class NotificationsAdapter(
     }
 
     inner class NotificationsGroupHolder (itemView: View) : BaseGroupHolder<NotificationType>(itemView){
-        var ttt : TextView =  itemView.findViewById(R.id.tv_group)
+        var ttt : TextView =  itemView.findViewById(R.id.notifications_group_tv_title)
 
         override fun bindGroup(groupItem: NotificationType){
             ttt.text = groupItem.title
@@ -64,8 +64,10 @@ class NotificationsAdapter(
     }
 
     inner class NotificationsChildHolder (itemView: View) : BaseChildHolder<Notification>(itemView){
-        var ttt : TextView =  itemView.findViewById(R.id.t)
-
+        var ttt : TextView =  itemView.findViewById(R.id.notifications_child_tv_information)
+        init {
+            ttt.setSelected(true)
+        }
         override fun bindChild(childItem : Notification){
             ttt.text = childItem.massage
         }

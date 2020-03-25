@@ -35,8 +35,15 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
         val groupList : List<NotificationType> = arrayListOf(
-                NotificationType("message", arrayListOf(Notification("hello my friend"))),
-                NotificationType("yaxq", arrayListOf(Notification("my ee"))))
+                NotificationType("Notification type1",
+                        arrayListOf(Notification("hello my friend1"),
+                                Notification("hello my friend2"))),
+                NotificationType("Notification type2",
+                        arrayListOf(Notification("Your pickup st-th is pendinghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh conformation"),
+                                Notification("Your pickup st-th is pending conformation"))),
+                NotificationType("Notification type3",
+                        arrayListOf(Notification("Your pickup st-th is pendinghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh conformation"),
+                                Notification("Your pickup st-th is pending conformation"))))
         adapter.setGroupData(groupList)
         adapter.expandAllGroups()
         return view
