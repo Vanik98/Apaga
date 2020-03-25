@@ -53,5 +53,7 @@
     <string name="cancel_this_pickup">Cancel This Pickup</string>
     <string name="edit_this_pickup">Edit this Pickup</string>
     <string name="menu_waste">waste</string>
+    <string name="add_another_bag">Add another bag</string>
+    <string name="next">Next</string>
 
 </resources>

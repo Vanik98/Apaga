@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import com.example.apaga.R
@@ -40,9 +41,11 @@ class WasteAdapter(private val context:Context): BaseListAdapter<String, WasteAd
     }
 
     inner class WasteHolder(itemView: View) : BaseListAdapter.BaseHolder<String>(itemView) {
-        val t:TextView = itemView.findViewById(R.id.tv_waste)
+        val textView:TextView = itemView.findViewById(R.id.waste_tv_text)
+        val imageView:ImageView = itemView.findViewById(R.id.waste_iv_image)
         override fun bind(item: String) {
-            t.text  = item
+            textView.text  = item
+            imageView.setImageResource(R.drawable.logo_paper)
         }
     }
 }
