@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
-import com.example.apaga.data.network.model.NotificationType
 import com.example.apaga.ui.base.BaseFragment
 import javax.inject.Inject
 
@@ -18,7 +17,7 @@ class WasteFragment : BaseFragment(), WasteContract.View {
     @Inject
     lateinit var layoutManager: LinearLayoutManager
     @Inject
-    lateinit var adapter: WasteListAdapter
+    lateinit var adapter: WasteAdapter
     private lateinit var recyclerView: RecyclerView
     override fun setUp(view: View) {
         view.setOnClickListener{}

@@ -122,9 +122,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dashboard_rv_pickup_description_value"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="150dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,9 +164,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dashboard_rv_bags_value"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="150dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

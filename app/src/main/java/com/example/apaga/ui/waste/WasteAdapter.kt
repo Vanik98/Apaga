@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseListAdapter
 
-class WasteListAdapter(private val context:Context): BaseListAdapter<String, WasteListAdapter.WasteHolder>(DIFF_CALLBACK) {
+class WasteAdapter(private val context:Context): BaseListAdapter<String, WasteAdapter.WasteHolder>(DIFF_CALLBACK) {
     lateinit var list:List<String>
     override fun setData(data: List<String>) {
         list = data

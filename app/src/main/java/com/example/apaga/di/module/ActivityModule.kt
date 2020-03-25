@@ -12,6 +12,7 @@ import com.example.apaga.ui.address.AddressPresenter
 import com.example.apaga.ui.buybags.BuyBagsContract
 import com.example.apaga.ui.buybags.BuyBagsPresenter
 import com.example.apaga.ui.dashboard.DashboardAdapter
+import com.example.apaga.ui.dashboard.DashboardChildAdapter
 import com.example.apaga.ui.dashboard.DashboardContract
 import com.example.apaga.ui.dashboard.DashboardPresenter
 import com.example.apaga.ui.home.HomeContract
@@ -30,7 +31,7 @@ import com.example.apaga.ui.qrscanner.QrScannerPresenter
 import com.example.apaga.ui.registration.RegistrationContract
 import com.example.apaga.ui.registration.RegistrationPresenter
 import com.example.apaga.ui.waste.WasteContract
-import com.example.apaga.ui.waste.WasteListAdapter
+import com.example.apaga.ui.waste.WasteAdapter
 import com.example.apaga.ui.waste.WastePresenter
 import com.example.apaga.utils.DialogUtils
 import dagger.Module
@@ -80,7 +81,7 @@ class ActivityModule(activity: AppCompatActivity) {
     fun provideWastePresenter(presenter: WastePresenter): WasteContract.Presenter = presenter
 
     @Provides
-    fun provideWasteAdapter(): WasteListAdapter = WasteListAdapter(activity)
+    fun provideWasteAdapter(): WasteAdapter = WasteAdapter(activity)
 
     @Provides
     fun provideQrScannerPresenter(presenter:QrScannerPresenter): QrScannerContract.Presenter = presenter
@@ -93,11 +94,17 @@ class ActivityModule(activity: AppCompatActivity) {
             NotificationsAdapter(activity, arrayListOf())
 
     @Provides
-    fun provideDashboardAdapter(): DashboardAdapter =
-            DashboardAdapter(activity)
+    fun provideDashboardAdapter(childAdapter: DashboardChildAdapter,
+                                layoutManager: LinearLayoutManager
+                                ): DashboardAdapter =
+            DashboardAdapter(activity,childAdapter,layoutManager)
 
     @Provides
-    fun provideLinearLayoutManagerAdapter(): LinearLayoutManager =
+    fun provideDashboardChildAdapter(): DashboardChildAdapter =
+            DashboardChildAdapter(activity)
+
+    @Provides
+    fun provideLinearLayoutManager(): LinearLayoutManager =
             LinearLayoutManager(activity)
 
     @Provides
