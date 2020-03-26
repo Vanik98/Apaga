@@ -3,6 +3,7 @@ package com.example.apaga.di.module
 
 import android.app.Dialog
 import android.content.Context
+import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apaga.di.ActivityContext
@@ -113,5 +114,7 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides
     fun provideDialog(): Dialog = Dialog(activity)
 
+    @Provides
+    fun provideGeocoder(): Geocoder = Geocoder(activity)
 
 }
