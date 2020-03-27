@@ -23,12 +23,12 @@ class BuyBagsFragment : BaseFragment(), BuyBagsContract.View {
     }
 
     override fun findViewsById(view:View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+     view.setOnClickListener{}
     }
 
 
     override fun setViewsOptions() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+   print("aaa")
     }
 
 }

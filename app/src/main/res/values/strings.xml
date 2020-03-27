@@ -55,5 +55,8 @@
     <string name="menu_waste">waste</string>
     <string name="add_another_bag">Add another bag</string>
     <string name="next">Next</string>
+    <string name="qr_code">My QR code</string>
+    <string name="regions">Regions</string>
+    <string name="street_name">Street Name</string>
 
 </resources>

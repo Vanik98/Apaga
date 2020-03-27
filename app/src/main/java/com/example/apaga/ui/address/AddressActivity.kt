@@ -8,6 +8,7 @@ import android.location.*
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.apaga.R
@@ -26,23 +27,33 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
-    @Inject lateinit var presenter: AddressPresenter
-    lateinit var confirm : Button
-    private lateinit var locationManager : LocationManager
+    @Inject
+    lateinit var presenter: AddressPresenter
+    @Inject
+    lateinit var gc: Geocoder
+    private lateinit var locationManager: LocationManager
     private lateinit var locationListener: LocationListener
-    private lateinit var myGelolocation:MarkerOptions
-    @Inject lateinit var gc:Geocoder
+    private lateinit var myGelolocation: MarkerOptions
+    lateinit var confirm: Button
+    lateinit var regions :EditText
+    lateinit var stretName:EditText
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
         activityComponent.inject(this)
         setUp()
     }
+
     override fun findViewsById() {
-        confirm = findViewById(R.id.btn_confirm)  }
+        confirm = findViewById(R.id.address_btn_confirm)
+        regions = findViewById(R.id.address_et_regions)
+        stretName = findViewById(R.id.address_et_street_name)
+    }
 
     override fun setViewsOnClickListener() {
-        confirm.setOnClickListener{
+        confirm.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
@@ -53,12 +64,12 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
     }
 
 
-    private fun setMap(){
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+    private fun setMap() {
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.address_frg_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    private fun showGeolocation(){
+    private fun showGeolocation() {
         locationManager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (ActivityCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
@@ -72,13 +83,18 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
                 val longitude = location!!.longitude
                 val list = gc.getFromLocation(latiude, longitude, 1)
                 val address: Address = list[0]
-                Log.i("vvv", address.locality)
-
-                for (i in 0 until address.getMaxAddressLineIndex()) {
-                    Log.i("vvv-address", address.getAddressLine(i))
-                    println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+  address.getAddressLine(i))
+                regions.setText(address.locality.toString())
+//                regions.setText(mMap.getCameraPosition().target.toString())
+                var street = ""
+                for(i in address.getAddressLine(0).toString().indices){
+                    if(address.getAddressLine(0).toString()[i]==','){
+                        break
+                    }
+                    street += address.getAddressLine(0).toString()[i]
                 }
-                println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+address.getAddressLine(0))
+                stretName.setText(street)
+//                regions.setText(address.countryName)
+//                stretName.setText(address.locality.toString())
 //                val icon= BitmapDescriptorFactory.fromResource(R.drawable.vanik)
                 myGelolocation = MarkerOptions().position(LatLng(latiude, longitude))
 //                        .title(user.name).icon(icon)
@@ -115,8 +131,8 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),1)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
         showGeolocation()
 
