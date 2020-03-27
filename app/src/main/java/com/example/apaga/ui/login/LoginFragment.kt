@@ -38,30 +38,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var scrollView: ScrollView
     private lateinit var signInVersions:TextView
 
-    override fun setUp(view: View) {
-        view.setOnClickListener{}
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        activityComponent!!.inject(this)
-        presenter.onAttach(this)
-        callbackManager = CallbackManager.Factory.create()
-        actionWithXmlViews(view)
-        return view
-    }
-    private fun actionWithXmlViews(view: View) {
-        findViewIds(view)
-        setViewParameters()
-        setButtonsClickListener()
-    }
-
-    private fun setViewParameters(){
-        facebookSignIn.setReadPermissions(listOf("logo_email", "public_profile"))
-    }
-
-    private fun findViewIds(view: View) {
+    override fun findViewsById(view: View) {
         username = view.findViewById(R.id.et_username)
         password = view.findViewById(R.id.et_password)
         login = view.findViewById(R.id.btn_login)
@@ -73,7 +50,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         navController = findNavController((activity as MainActivity), R.id.main_navigation_fragment)
     }
 
-    private fun setButtonsClickListener() {
+    override fun setViewsOnClickListener() {
         login.setOnClickListener {
             presenter.loginWithEmail(username.text.toString(), password.text.toString())
         }
@@ -99,7 +76,19 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         signInVersions.setOnClickListener{
             scrollView.fullScroll(View.FOCUS_DOWN)
         }
+    }
 
+    override fun setViewsOptions() {
+        facebookSignIn.setReadPermissions(listOf("logo_email", "public_profile"))
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        callbackManager = CallbackManager.Factory.create()
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
+        return view
     }
 
     override fun openRegistrationEmailFragment() {
@@ -117,5 +106,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         startActivity(Intent(activity, AddressActivity::class.java))
         activity!!.finish()
     }
+
+    fun getCallbackManager() = callbackManager
 }
 

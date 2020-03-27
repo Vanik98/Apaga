@@ -36,17 +36,22 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
         activityComponent.inject(this)
-        setMap()
-        confirm = findViewById(R.id.btn_confirm)
+        setUp()
+    }
+    override fun findViewsById() {
+        confirm = findViewById(R.id.btn_confirm)  }
+
+    override fun setViewsOnClickListener() {
         confirm.setOnClickListener{
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
     }
 
-    override fun setUp() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun setViewsOptions() {
+        setMap()
     }
+
 
     private fun setMap(){
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -54,8 +59,6 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
     }
 
     private fun showGeolocation(){
-//        myGelolocation = MarkerOptions().position(LatLng(40.1811, 44.5136)).title("Vanik")
-//        mMap.addMarker(myGelolocation)
         locationManager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if (ActivityCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
@@ -67,10 +70,15 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
             override fun onLocationChanged(location: Location?) {
                 val latiude = location!!.latitude
                 val longitude = location!!.longitude
-                val list = gc.getFromLocation(40.1811, 44.5136, 1)
+                val list = gc.getFromLocation(latiude, longitude, 1)
                 val address: Address = list[0]
                 Log.i("vvv", address.locality)
-                println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+address.locality)
+
+                for (i in 0 until address.getMaxAddressLineIndex()) {
+                    Log.i("vvv-address", address.getAddressLine(i))
+                    println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+  address.getAddressLine(i))
+                }
+                println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+address.getAddressLine(0))
 //                val icon= BitmapDescriptorFactory.fromResource(R.drawable.vanik)
                 myGelolocation = MarkerOptions().position(LatLng(latiude, longitude))
 //                        .title(user.name).icon(icon)
@@ -90,6 +98,7 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
                     status: Int,
                     extras: Bundle?
             ) {
+//                mMap.clear()
             }
 
             override fun onProviderEnabled(provider: String?) {
@@ -110,6 +119,7 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
             ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),1)
         }
         showGeolocation()
+
     }
 
 }

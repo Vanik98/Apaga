@@ -34,20 +34,11 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         setContentView(R.layout.activity_home)
         activityComponent.inject(this)
         presenter.onAttach(this)
-        actionWithXmlViews()
+        setUp()
     }
 
-    override fun setUp() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    private fun actionWithXmlViews() {
-        findViewIds()
-        setNavigation()
-        setButtonsClickListener()
-    }
-
-    private fun findViewIds() {
+    override fun findViewsById() {
+        print("")
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
@@ -57,14 +48,8 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 //        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
     }
 
-    private fun setButtonsClickListener() {
-//        navIcon.setOnClickListener {
-//            if (drawerLayout.isDrawerOpen(navView)) {
-//                drawerLayout.closeDrawer(navView)
-//            } else {
-//                drawerLayout.openDrawer(navView)
-//            }
-//        }
+    override fun setViewsOptions() {
+        setNavigation()
     }
 
 

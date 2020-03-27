@@ -13,8 +13,13 @@ class RegistrationFragment : BaseFragment(),RegistrationContract.View {
     @Inject
     lateinit var presenter:RegistrationContract.Presenter
 
-    override fun setUp(view: View) {
+    override fun findViewsById(view: View) {
         view.setOnClickListener{}
+    }
+
+
+    override fun setViewsOptions() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

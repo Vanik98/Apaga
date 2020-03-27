@@ -121,5 +121,12 @@ abstract class BaseActivity : AppCompatActivity(), MvpView, BaseFragment.Callbac
         super.onDestroy()
     }
 
-    abstract fun setUp()
+    fun setUp(){
+        findViewsById()
+        setViewsOptions()
+        setViewsOnClickListener()
+    }
+    abstract fun findViewsById()
+    open fun setViewsOnClickListener(){}
+    abstract fun setViewsOptions()
 }
