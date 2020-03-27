@@ -16,23 +16,16 @@ class BuyBagsFragment : BaseFragment(), BuyBagsContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_buy_bugs, container, false)
-        actionWithViews(view)
-        return view
-
-    }
-
-    override fun setUp(view: View) {
         activityComponent!!.inject(this)
         presenter.onAttach(this)
+        return view
+
     }
 
     override fun findViewsById(view:View) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setViewsOnClickListener() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun setViewsOptions() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

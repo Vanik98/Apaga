@@ -18,16 +18,12 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
     @Inject
     lateinit var adapter: DashboardAdapter
     private lateinit var recyclerView: RecyclerView
-    override fun setUp(view: View) {
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
-        actionWithViews(view)
         return view
     }
 

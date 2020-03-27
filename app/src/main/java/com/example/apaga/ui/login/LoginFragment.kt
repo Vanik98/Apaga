@@ -38,11 +38,6 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var scrollView: ScrollView
     private lateinit var signInVersions:TextView
 
-    override fun setUp(view: View) {
-        activityComponent!!.inject(this)
-        presenter.onAttach(this)
-    }
-
     override fun findViewsById(view: View) {
         username = view.findViewById(R.id.et_username)
         password = view.findViewById(R.id.et_password)
@@ -91,7 +86,8 @@ class LoginFragment : BaseFragment(),LoginContract.View {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
         callbackManager = CallbackManager.Factory.create()
-        actionWithViews(view)
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
         return view
     }
 
@@ -110,5 +106,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         startActivity(Intent(activity, AddressActivity::class.java))
         activity!!.finish()
     }
+
+    fun getCallbackManager() = callbackManager
 }
 

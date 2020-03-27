@@ -25,7 +25,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
     }
 
     override fun accessTokenTracker() {
-        val accessTokenTracker = object : AccessTokenTracker(){
+         object : AccessTokenTracker(){
             override fun onCurrentAccessTokenChanged(oldAccessToken: AccessToken?, currentAccessToken: AccessToken?) {
                 if(currentAccessToken != null){
                     loginWithFacebook(currentAccessToken)

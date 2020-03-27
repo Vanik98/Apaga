@@ -121,13 +121,13 @@ abstract class BaseFragment : Fragment(), MvpView {
         fun onFragmentAttached()
         fun onFragmentDetached(tag: String)
     }
-    abstract fun setUp(view: View)
-    fun actionWithViews(view: View){
+
+    private fun setUp(view: View){
         findViewsById(view)
         setViewsOnClickListener()
         setViewsOptions()
     }
     abstract fun findViewsById(view: View)
-    abstract fun setViewsOnClickListener()
+    open fun setViewsOnClickListener(){}
     abstract fun setViewsOptions()
 }

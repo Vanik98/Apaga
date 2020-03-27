@@ -1,6 +1,7 @@
 package com.example.apaga.ui.base
 
 interface SubMvpView : MvpView {
+    fun setUp()
     fun onCreate()
     fun onStart()
     fun onResume()

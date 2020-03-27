@@ -32,11 +32,9 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        actionWithViews()
-    }
-    override fun setUp() {
         activityComponent.inject(this)
         presenter.onAttach(this)
+        setUp()
     }
 
     override fun findViewsById() {

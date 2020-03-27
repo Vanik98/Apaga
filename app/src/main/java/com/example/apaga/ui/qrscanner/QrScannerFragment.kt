@@ -18,17 +18,9 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
     lateinit var presenter:QrScannerContract.Presenter
     private lateinit var scanner:CodeScanner
     private lateinit var scannerView:CodeScannerView
-    override fun setUp(view: View) {
-        activityComponent!!.inject(this)
-        presenter.onAttach(this)
-    }
 
     override fun findViewsById(view: View) {
         scannerView = view.findViewById(R.id.qr_scanner_view)
-    }
-
-    override fun setViewsOnClickListener() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setViewsOptions() {
@@ -51,8 +43,8 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
-       actionWithViews(view)
-
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
         return view
     }
 

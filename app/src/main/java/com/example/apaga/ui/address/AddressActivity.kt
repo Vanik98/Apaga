@@ -36,28 +36,20 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
         activityComponent.inject(this)
-        setMap()
-        confirm = findViewById(R.id.btn_confirm)
+        setUp()
+    }
+    override fun findViewsById() {
+        confirm = findViewById(R.id.btn_confirm)  }
+
+    override fun setViewsOnClickListener() {
         confirm.setOnClickListener{
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
     }
 
-    override fun setUp() {
-
-    }
-
-    override fun findViewsById() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun setViewsOnClickListener() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun setViewsOptions() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setMap()
     }
 
 

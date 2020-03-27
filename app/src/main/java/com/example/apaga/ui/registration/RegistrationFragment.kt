@@ -13,18 +13,10 @@ class RegistrationFragment : BaseFragment(),RegistrationContract.View {
     @Inject
     lateinit var presenter:RegistrationContract.Presenter
 
-    override fun setUp(view: View) {
-
-        activityComponent!!.inject(this)
-        presenter.onAttach(this)
-    }
-
     override fun findViewsById(view: View) {
-        view.setOnClickListener{} }
-
-    override fun setViewsOnClickListener() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view.setOnClickListener{}
     }
+
 
     override fun setViewsOptions() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -33,7 +25,8 @@ class RegistrationFragment : BaseFragment(),RegistrationContract.View {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_registration, container, false)
-        actionWithViews(view)
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
         return view
     }
 
