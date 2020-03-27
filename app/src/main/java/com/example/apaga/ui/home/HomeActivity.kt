@@ -32,22 +32,15 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        actionWithViews()
+    }
+    override fun setUp() {
         activityComponent.inject(this)
         presenter.onAttach(this)
-        actionWithXmlViews()
     }
 
-    override fun setUp() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    private fun actionWithXmlViews() {
-        findViewIds()
-        setNavigation()
-        setButtonsClickListener()
-    }
-
-    private fun findViewIds() {
+    override fun findViewsById() {
+        print("")
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
@@ -57,14 +50,8 @@ class HomeActivity : BaseActivity(), HomeContract.View {
 //        emailHeader = navView.findViewById(R.id.tv_nav_header_email)
     }
 
-    private fun setButtonsClickListener() {
-//        navIcon.setOnClickListener {
-//            if (drawerLayout.isDrawerOpen(navView)) {
-//                drawerLayout.closeDrawer(navView)
-//            } else {
-//                drawerLayout.openDrawer(navView)
-//            }
-//        }
+    override fun setViewsOptions() {
+        setNavigation()
     }
 
 

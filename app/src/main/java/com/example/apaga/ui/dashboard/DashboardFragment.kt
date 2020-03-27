@@ -19,7 +19,7 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
     lateinit var adapter: DashboardAdapter
     private lateinit var recyclerView: RecyclerView
     override fun setUp(view: View) {
-        view.setOnClickListener{}
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -27,12 +27,22 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
-        val groupList : List<String> = arrayListOf("1","5","3","7")
+        actionWithViews(view)
+        return view
+    }
+
+    override fun findViewsById(view: View) {
         recyclerView = view.findViewById(R.id.dashboard_rv)
+    }
+
+    override fun setViewsOnClickListener() {
+    }
+
+    override fun setViewsOptions() {
+        val groupList : List<String> = arrayListOf("1","5","3","7")
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
         adapter.setData(groupList)
-        return view
     }
 
 

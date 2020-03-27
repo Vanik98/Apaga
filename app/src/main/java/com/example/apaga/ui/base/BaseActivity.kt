@@ -122,4 +122,12 @@ abstract class BaseActivity : AppCompatActivity(), MvpView, BaseFragment.Callbac
     }
 
     abstract fun setUp()
+    fun actionWithViews(){
+        findViewsById()
+        setViewsOptions()
+        setViewsOnClickListener()
+    }
+    abstract fun findViewsById()
+    open fun setViewsOnClickListener(){}
+    abstract fun setViewsOptions()
 }

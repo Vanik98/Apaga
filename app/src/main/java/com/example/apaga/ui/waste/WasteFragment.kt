@@ -20,19 +20,29 @@ class WasteFragment : BaseFragment(), WasteContract.View {
     lateinit var adapter: WasteAdapter
     private lateinit var recyclerView: RecyclerView
     override fun setUp(view: View) {
-        view.setOnClickListener{}
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
         activityComponent!!.inject(this)
         presenter.onAttach(this)
-        val view = inflater.inflate(R.layout.fragment_waste, container, false)
+    }
+
+    override fun findViewsById(view: View) {
         recyclerView = view.findViewById(R.id.rv_waste)
+    }
+
+    override fun setViewsOnClickListener() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setViewsOptions() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
         val groupList : List<String> = arrayListOf("asdasd","asdsad","Qwewq","Ee")
         adapter.setData(groupList)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
+        val view = inflater.inflate(R.layout.fragment_waste, container, false)
+        actionWithViews(view)
         return view
     }
 

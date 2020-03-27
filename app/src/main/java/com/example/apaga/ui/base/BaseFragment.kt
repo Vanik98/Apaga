@@ -111,8 +111,6 @@ abstract class BaseFragment : Fragment(), MvpView {
     //    public void setUnBinder(Unbinder unBinder) {
 //        mUnBinder = unBinder;
 //    }
-    abstract fun setUp(view: View)
-
     override fun onDestroy() { //        if (mUnBinder != null) {
 //            mUnBinder.unbind();
 //        }
@@ -123,4 +121,13 @@ abstract class BaseFragment : Fragment(), MvpView {
         fun onFragmentAttached()
         fun onFragmentDetached(tag: String)
     }
+    abstract fun setUp(view: View)
+    fun actionWithViews(view: View){
+        findViewsById(view)
+        setViewsOnClickListener()
+        setViewsOptions()
+    }
+    abstract fun findViewsById(view: View)
+    abstract fun setViewsOnClickListener()
+    abstract fun setViewsOptions()
 }

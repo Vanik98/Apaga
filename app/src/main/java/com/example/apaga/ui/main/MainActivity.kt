@@ -15,15 +15,26 @@ class MainActivity : BaseActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        activityComponent.inject(this)
-        presenter.onAttach(this)
-        actionWithXmlViews()
+        actionWithViews()
     }
 
     override fun setUp() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activityComponent.inject(this)
+        presenter.onAttach(this)
     }
+
+    override fun findViewsById() {
+        background = findViewById(R.id.main_im_apaga_background)
+    }
+
+    override fun setViewsOnClickListener() {
+
+    }
+
+    override fun setViewsOptions() {
+        background.visibility = View.INVISIBLE
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        callbackManager.onActivityResult(requestCode,resultCode,data)
@@ -31,25 +42,10 @@ class MainActivity : BaseActivity(), MainContract.View {
 //        presenter.accessTokenTracker()
     }
 
-    private fun actionWithXmlViews() {
-        findViewIds()
-        setButtonsClickListener()
-        setViewParameters()
-    }
 
     private fun setButtonsClickListener() {
         print("")
     }
-
-    private fun setViewParameters() {
-        background.visibility = View.INVISIBLE
-    }
-
-    private fun findViewIds() {
-        background = findViewById(R.id.im_apaga_background)
-    }
-
-
 
 }
 

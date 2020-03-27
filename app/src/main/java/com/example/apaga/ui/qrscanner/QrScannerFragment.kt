@@ -19,16 +19,20 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
     private lateinit var scanner:CodeScanner
     private lateinit var scannerView:CodeScannerView
     override fun setUp(view: View) {
-        view.setOnClickListener{}
-
-    }
-    val fragmentContext = this
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
+    }
+
+    override fun findViewsById(view: View) {
         scannerView = view.findViewById(R.id.qr_scanner_view)
+    }
+
+    override fun setViewsOnClickListener() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setViewsOptions() {
+
         scannerView.isAutoFocusButtonVisible = false
         scannerView.isFlashButtonVisible = false
         scanner = activity?.let { CodeScanner(it,scannerView) }!!
@@ -36,11 +40,19 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
             Log.i("vvv",it.text)
             activity!!.runOnUiThread{
 
-        }
+            }
             scannerView.setOnClickListener{
                 scanner.startPreview()
             }
         }
+    }
+
+    val fragmentContext = this
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
+       actionWithViews(view)
+
         return view
     }
 
