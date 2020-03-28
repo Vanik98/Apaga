@@ -26,7 +26,7 @@ class PaymentFragment : BaseFragment(),PaymentContract.View {
 
 
     override fun setViewsOptions() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+   print("")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

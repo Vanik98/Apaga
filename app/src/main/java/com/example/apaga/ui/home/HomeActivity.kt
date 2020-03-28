@@ -78,4 +78,6 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    fun getNavController() = navController
 }

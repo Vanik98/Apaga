@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
+import com.example.apaga.ui.home.HomeActivity
 import javax.inject.Inject
 
 class DashboardFragment : BaseFragment(), DashboardContract.View{
@@ -19,6 +21,8 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
     lateinit var adapter: DashboardAdapter
     private lateinit var recyclerView: RecyclerView
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
@@ -29,9 +33,7 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
 
     override fun findViewsById(view: View) {
         recyclerView = view.findViewById(R.id.dashboard_rv)
-    }
 
-    override fun setViewsOnClickListener() {
     }
 
     override fun setViewsOptions() {

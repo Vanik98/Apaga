@@ -12,6 +12,7 @@
     <color name="textColorLight">#ffffff</color>
     <color name="textColorDark">#0C8040</color>
     <color name="textColorBlack">#000000</color>
+    <color name="textColorDarkBlack">#282F39</color>
     <color name="textColor">#9FCD4F</color>
     <color name="toolBarColor">#ffffff</color>
     <color name="backgroundColor">#ffffff</color>

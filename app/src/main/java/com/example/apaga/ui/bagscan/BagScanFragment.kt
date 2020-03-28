@@ -1,4 +1,4 @@
-package com.example.apaga.ui.qrscanner
+package com.example.apaga.ui.bagscan
 
 import android.os.Bundle
 import android.util.Log
@@ -12,10 +12,10 @@ import com.example.apaga.ui.base.BaseFragment
 import javax.inject.Inject
 
 
-class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
+class BagScanFragment  : BaseFragment(), BagScanContract.View {
 
     @Inject
-    lateinit var presenter:QrScannerContract.Presenter
+    lateinit var presenter: BagScanContract.Presenter
     private lateinit var scanner:CodeScanner
     private lateinit var scannerView:CodeScannerView
 
@@ -42,7 +42,7 @@ class QrScannerFragment  : BaseFragment(), QrScannerContract.View {
     val fragmentContext = this
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_qr_scanner, container, false)
+        val view = inflater.inflate(R.layout.fragment_bag_scan, container, false)
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         return view

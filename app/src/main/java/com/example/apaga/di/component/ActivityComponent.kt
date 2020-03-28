@@ -10,7 +10,7 @@ import com.example.apaga.ui.login.LoginFragment
 import com.example.apaga.ui.main.MainActivity
 import com.example.apaga.ui.notifications.NotificationsFragment
 import com.example.apaga.ui.payment.PaymentFragment
-import com.example.apaga.ui.qrscanner.QrScannerFragment
+import com.example.apaga.ui.bagscan.BagScanFragment
 import com.example.apaga.ui.registration.RegistrationFragment
 import com.example.apaga.ui.settings.SettingsActivity
 import com.example.apaga.ui.waste.WasteFragment
@@ -33,6 +33,6 @@ interface ActivityComponent {
     fun inject(fragment: RegistrationFragment)
     fun inject(fragment: NotificationsFragment)
     fun inject(fragment: WasteFragment)
-    fun inject(fragment: QrScannerFragment)
+    fun inject(fragment: BagScanFragment)
     fun inject(fragment: DashboardFragment)
 }

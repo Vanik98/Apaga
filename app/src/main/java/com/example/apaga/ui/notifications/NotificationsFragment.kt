@@ -25,10 +25,6 @@ class NotificationsFragment : BaseFragment(), NotificationsContract.View {
     override fun findViewsById(view: View) {
         recyclerView = view.findViewById(R.id.rv_notifications)  }
 
-    override fun setViewsOnClickListener() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun setViewsOptions() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
