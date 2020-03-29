@@ -63,7 +63,7 @@ class DashboardAdapter @Inject constructor(
             recyclerView.adapter = adapterChild
             adapterChild.setData(list)
             editPickup.setOnClickListener{
-                (context as HomeActivity).getNavController().navigate(R.id.nav_payment)
+                (context as HomeActivity).navigate(R.id.nav_buy_bags)
             }
         }
     }

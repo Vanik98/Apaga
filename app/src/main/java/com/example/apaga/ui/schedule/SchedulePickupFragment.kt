@@ -7,12 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.apaga.R
+import com.example.apaga.ui.base.BaseFragment
+import com.example.apaga.ui.payment.PaymentContract
+import javax.inject.Inject
 
-class SchedulePickupFragment : Fragment() {
+class SchedulePickupFragment : BaseFragment(),SchedulePickupContract.View {
+
+    @Inject
+    lateinit var presenter: SchedulePickupContract.Presenter
+    override fun findViewsById(view: View) {
+    print("a")
+    }
+
+    override fun setViewsOptions() {
+        print("a")
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+        activityComponent!!.inject(this)
+        presenter.onAttach(this)
         return inflater.inflate(R.layout.fragment_schedule_pickup, container, false)
     }
 }

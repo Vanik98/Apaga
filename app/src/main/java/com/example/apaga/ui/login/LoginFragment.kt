@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 
@@ -34,7 +35,7 @@ class LoginFragment : BaseFragment(),LoginContract.View {
     private lateinit var facebookSignIn: LoginButton
     private lateinit var signIn: ImageView
     private lateinit var callbackManager: CallbackManager
-    private lateinit var navController: NavController
+
     private lateinit var scrollView: ScrollView
     private lateinit var signInVersions:TextView
 
@@ -47,7 +48,6 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         signInVersions = view.findViewById(R.id.tv_sign_in_versions)
 //        emailRegistration = view.findViewById(R.id.btn_email)
         facebookSignIn = view.findViewById(R.id.btn_facebook)
-        navController = findNavController((activity as MainActivity), R.id.main_navigation_fragment)
     }
 
     override fun setViewsOnClickListener() {
@@ -107,6 +107,5 @@ class LoginFragment : BaseFragment(),LoginContract.View {
         activity!!.finish()
     }
 
-    fun getCallbackManager() = callbackManager
 }
 

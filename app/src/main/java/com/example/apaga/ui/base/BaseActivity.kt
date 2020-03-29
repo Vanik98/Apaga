@@ -6,10 +6,14 @@ import android.os.Bundle
 import androidx.annotation.Nullable
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavHost
+import androidx.navigation.findNavController
 import com.example.apaga.MvpApp
+import com.example.apaga.R
 import com.example.apaga.di.component.ActivityComponent
 import com.example.apaga.di.component.DaggerActivityComponent
 import com.example.apaga.di.module.ActivityModule
+import com.example.apaga.ui.home.HomeActivity
 
 
 abstract class BaseActivity : AppCompatActivity(), MvpView, BaseFragment.Callback {
@@ -120,6 +124,7 @@ abstract class BaseActivity : AppCompatActivity(), MvpView, BaseFragment.Callbac
 //        }
         super.onDestroy()
     }
+   abstract fun navigate(navigateId: Int)
 
     fun setUp(){
         findViewsById()

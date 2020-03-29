@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.navigation.findNavController
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.login.LoginFragment
@@ -21,6 +22,10 @@ class MainActivity : BaseActivity(), MainContract.View {
         activityComponent.inject(this)
         presenter.onAttach(this)
         setUp()
+    }
+
+    override fun navigate(navigateId: Int) {
+        findNavController(R.id.main_navigation_fragment).navigate(navigateId)
     }
 
 

@@ -21,6 +21,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.apaga.di.component.ActivityComponent
 
 abstract class BaseFragment : Fragment(), MvpView {

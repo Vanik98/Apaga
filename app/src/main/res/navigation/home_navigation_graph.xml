@@ -62,4 +62,12 @@
         android:name="com.example.apaga.ui.dashboard.DashboardFragment"
         android:label="@string/fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/nav_scheduled_pickup"
+        android:name="com.example.apaga.ui.schedule.SchedulePickupFragment"
+        android:label="@string/schedule_a_pPickup" >
+        <action
+            android:id="@+id/action_nav_scheduled_pickup_to_nav_dashboard"
+            app:destination="@id/nav_dashboard" />
+    </fragment>
 </navigation>

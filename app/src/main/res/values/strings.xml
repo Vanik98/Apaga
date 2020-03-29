@@ -62,5 +62,11 @@
     <string name="card_holder_name">Card holder name</string>
     <string name="expiry_date">Expiry date</string>
     <string name="remember_card">Remember card</string>
+    <string name="cancel_pickup">Cancel Pickup</string>
+    <string name="confirm">Confirm</string>
+    <string name="close">Close</string>
+    <string name="note_for_driver">Note for Driver</string>
+    <string name="pickup_date">Pickup Date</string>
+    <string name="schedule_a_pPickup">Schedule a Pickup</string>
 
 </resources>

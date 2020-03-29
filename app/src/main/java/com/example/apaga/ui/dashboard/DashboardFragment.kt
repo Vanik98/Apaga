@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
 import com.example.apaga.ui.home.HomeActivity
+import com.example.apaga.ui.schedule.SchedulePickupContract
 import javax.inject.Inject
 
 class DashboardFragment : BaseFragment(), DashboardContract.View{
@@ -20,6 +21,7 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
     @Inject
     lateinit var adapter: DashboardAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var schedulePickupBtn:Button
 
 
 
@@ -33,7 +35,14 @@ class DashboardFragment : BaseFragment(), DashboardContract.View{
 
     override fun findViewsById(view: View) {
         recyclerView = view.findViewById(R.id.dashboard_rv)
+        schedulePickupBtn = view.findViewById(R.id.dashboard_btn_schedule_a_pickup)
 
+    }
+
+    override fun setViewsOnClickListener() {
+        schedulePickupBtn.setOnClickListener{
+            (activity as HomeActivity).navigate(R.id.nav_scheduled_pickup)
+        }
     }
 
     override fun setViewsOptions() {

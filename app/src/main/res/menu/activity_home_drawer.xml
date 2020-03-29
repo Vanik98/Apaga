@@ -11,10 +11,6 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_dashboard" />
         <item
-            android:id="@+id/nav_scheduled_pickup"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_scheduled_pickup" />
-        <item
             android:id="@+id/nav_buy_bags"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_buy_bags" />

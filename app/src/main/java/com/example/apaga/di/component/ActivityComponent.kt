@@ -12,6 +12,7 @@ import com.example.apaga.ui.notifications.NotificationsFragment
 import com.example.apaga.ui.payment.PaymentFragment
 import com.example.apaga.ui.bagscan.BagScanFragment
 import com.example.apaga.ui.registration.RegistrationFragment
+import com.example.apaga.ui.schedule.SchedulePickupFragment
 import com.example.apaga.ui.settings.SettingsActivity
 import com.example.apaga.ui.waste.WasteFragment
 import dagger.Component
@@ -35,4 +36,5 @@ interface ActivityComponent {
     fun inject(fragment: WasteFragment)
     fun inject(fragment: BagScanFragment)
     fun inject(fragment: DashboardFragment)
+    fun inject(fragment: SchedulePickupFragment)
 }

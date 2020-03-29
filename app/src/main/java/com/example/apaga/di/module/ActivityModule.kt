@@ -31,6 +31,8 @@ import com.example.apaga.ui.bagscan.BagScanContract
 import com.example.apaga.ui.bagscan.BagScanPresenter
 import com.example.apaga.ui.registration.RegistrationContract
 import com.example.apaga.ui.registration.RegistrationPresenter
+import com.example.apaga.ui.schedule.SchedulePickupContract
+import com.example.apaga.ui.schedule.SchedulePickupPresenter
 import com.example.apaga.ui.waste.WasteContract
 import com.example.apaga.ui.waste.WasteAdapter
 import com.example.apaga.ui.waste.WastePresenter
@@ -89,6 +91,9 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     fun provideDashboardPresenter(presenter:DashboardPresenter): DashboardContract.Presenter = presenter
+
+    @Provides
+    fun provideSchedulePickupPresenter(presenter: SchedulePickupPresenter): SchedulePickupContract.Presenter = presenter
 
     @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =

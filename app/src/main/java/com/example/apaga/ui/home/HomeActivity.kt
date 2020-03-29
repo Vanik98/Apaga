@@ -37,6 +37,10 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         setUp()
     }
 
+    override fun navigate(navigateId: Int) {
+        navController.navigate(R.id.nav_payment)
+    }
+
     override fun findViewsById() {
         print("")
         toolbar = findViewById(R.id.toolbar)
@@ -79,5 +83,4 @@ class HomeActivity : BaseActivity(), HomeContract.View {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    fun getNavController() = navController
 }

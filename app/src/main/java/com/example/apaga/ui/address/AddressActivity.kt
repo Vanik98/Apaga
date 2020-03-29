@@ -11,6 +11,9 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.ActivityNavigator
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.apaga.R
 import com.example.apaga.ui.base.BaseActivity
 import com.example.apaga.ui.home.HomeActivity
@@ -46,6 +49,10 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         setUp()
     }
 
+    override fun navigate(navigateId: Int) {
+        print("asd")
+    }
+
     override fun findViewsById() {
         confirm = findViewById(R.id.address_btn_confirm)
         regions = findViewById(R.id.address_et_regions)
@@ -55,6 +62,7 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
     override fun setViewsOnClickListener() {
         confirm.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
+            navigate(R.id.nav_dashboard)
             finish()
         }
     }

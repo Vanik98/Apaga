@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/btn_schedule_a_pickup"
+        android:id="@+id/dashboard_btn_schedule_a_pickup"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
