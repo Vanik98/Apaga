@@ -27,7 +27,7 @@ class WasteFragment : BaseFragment(), WasteContract.View {
     override fun setViewsOptions() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
-        val groupList : List<String> = arrayListOf("asdasd","asdsad","Qwewq","Ee")
+        val groupList : List<String> = arrayListOf("Plastic","Paper","Glass","Paper")
         adapter.setData(groupList)
     }
 

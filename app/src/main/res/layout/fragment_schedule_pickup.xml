@@ -10,7 +10,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="20dp"
     tools:context=".ui.schedule.SchedulePickupFragment">
 
 
@@ -47,7 +47,6 @@
         android:layout_width="37dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
         android:src="@drawable/logo_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
@@ -75,7 +74,6 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="52dp"
         android:text="Pickup Time"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,16 +86,15 @@
         android:layout_marginTop="40dp"
         android:text="Bag(s)"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/schedule_pickup_rv_description" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="68dp"
-        android:textSize="10sp"
         android:text="Interval (min:3 hours)"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -108,6 +105,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="52dp"
         android:text="15"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.251"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -145,7 +144,7 @@
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/dark_buttons_background"
@@ -156,7 +155,7 @@
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/dark_buttons_background"
@@ -173,10 +172,10 @@
         android:hint="@string/note_for_driver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/schedule_pickup_rv_description" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewasd"
+        android:id="@+id/schedule_pickup_rv_bags"
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginStart="60dp"
@@ -184,10 +183,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/schedule_pickup_rv_description" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/schedule_pickup_rv_description"
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginTop="32dp"

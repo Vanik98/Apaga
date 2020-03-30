@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/nav_waste"
         android:name="com.example.apaga.ui.waste.WasteFragment"
-        android:label="fragment_waste"
+        android:label="@string/waste"
         tools:layout="@layout/fragment_waste" />
     <fragment
         android:id="@+id/nav_qr_code_scanner"

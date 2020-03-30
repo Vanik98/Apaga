@@ -52,7 +52,7 @@
     <string name="address">Address</string>
     <string name="cancel_this_pickup">Cancel This Pickup</string>
     <string name="edit_this_pickup">Edit this Pickup</string>
-    <string name="menu_waste">waste</string>
+    <string name="menu_waste">Waste</string>
     <string name="add_another_bag">Add another bag</string>
     <string name="next">Next</string>
     <string name="qr_code">My QR code</string>
@@ -85,5 +85,6 @@
     <string name="spart_apaga_fb">www.facebook.com/smartapaga</string>
     <string name="spart_apaga_phone">+374 95-90-42-45</string>
     <string name="i_understand">I understand</string>
+    <string name="waste">Waste</string>
 
 </resources>

@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.settings.SettingsActivity">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="290dp"
+        android:layout_height="234dp"
+        android:text="Settings"
+        android:textSize="50sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,6 +31,7 @@ import com.example.apaga.ui.bagscan.BagScanContract
 import com.example.apaga.ui.bagscan.BagScanPresenter
 import com.example.apaga.ui.registration.RegistrationContract
 import com.example.apaga.ui.registration.RegistrationPresenter
+import com.example.apaga.ui.schedule.SchedulePickupAdapter
 import com.example.apaga.ui.schedule.SchedulePickupContract
 import com.example.apaga.ui.schedule.SchedulePickupPresenter
 import com.example.apaga.ui.waste.WasteContract
@@ -98,6 +99,10 @@ class ActivityModule(activity: AppCompatActivity) {
     @Provides
     fun provideNotificationsAdapter(): NotificationsAdapter =
             NotificationsAdapter(activity, arrayListOf())
+
+    @Provides
+    fun provideSchedulePickupAdapter(): SchedulePickupAdapter =
+            SchedulePickupAdapter(activity)
 
     @Provides
     fun provideDashboardAdapter(childAdapter: DashboardChildAdapter,

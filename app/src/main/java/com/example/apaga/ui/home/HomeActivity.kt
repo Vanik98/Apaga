@@ -1,7 +1,9 @@
 package com.example.apaga.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -13,9 +15,12 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.apaga.R
+import com.example.apaga.ui.address.AddressActivity
 import com.example.apaga.ui.base.BaseActivity
+import com.example.apaga.ui.settings.SettingsActivity
 import com.google.android.material.navigation.NavigationView
 import javax.inject.Inject
+
 
 class HomeActivity : BaseActivity(), HomeContract.View {
     @Inject
@@ -28,7 +33,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     private lateinit var navIcon: ImageView
     private lateinit var nameHeader: TextView
     private lateinit var emailHeader: TextView
-
+    private val context = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -73,9 +78,18 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.home_options, menu)
+        menuInflater.inflate(R.menu.home_menu_options, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                startActivity(Intent(context, SettingsActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

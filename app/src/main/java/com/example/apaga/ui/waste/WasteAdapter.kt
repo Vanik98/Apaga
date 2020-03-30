@@ -45,7 +45,11 @@ class WasteAdapter(private val context:Context): BaseListAdapter<String, WasteAd
         val imageView:ImageView = itemView.findViewById(R.id.waste_iv_image)
         override fun bind(item: String) {
             textView.text  = item
-            imageView.setImageResource(R.drawable.logo_paper)
+            when(item) {
+                "Plastic"->imageView.setImageResource(R.drawable.logo_plastik)
+                "Paper"->imageView.setImageResource(R.drawable.logo_paper)
+                "Glass"->imageView.setImageResource(R.drawable.logo_glass)
+            }
         }
     }
 }
