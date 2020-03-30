@@ -9,31 +9,19 @@
         android:id="@+id/nav_payment"
         android:name="com.example.apaga.ui.payment.PaymentFragment"
         android:label="@string/menu_payment"
-        tools:layout="@layout/fragment_payment" >
-        <action
-            android:id="@+id/action_nav_payment_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/nav_buy_bags"
         android:name="com.example.apaga.ui.buybags.BuyBagsFragment"
         android:label="@string/menu_buy_bags"
-        tools:layout="@layout/fragment_buy_bugs" >
-        <action
-            android:id="@+id/action_nav_buy_bags_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_buy_bugs" />
 
     <fragment
         android:id="@+id/nav_notifications"
         android:name="com.example.apaga.ui.notifications.NotificationsFragment"
         android:label="Notifications"
-        tools:layout="@layout/fragment_notifications" >
-        <action
-            android:id="@+id/action_nav_notifications_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/nav_waste"
         android:name="com.example.apaga.ui.waste.WasteFragment"
@@ -43,11 +31,7 @@
         android:id="@+id/nav_qr_code_scanner"
         android:name="com.example.apaga.ui.bagscan.BagScanFragment"
         android:label="@string/qr_code"
-        tools:layout="@layout/fragment_bag_scan" >
-        <action
-            android:id="@+id/action_nav_qr_code_scanner_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_bag_scan" />
     <activity
         android:id="@+id/nav_settings"
         android:name="com.example.apaga.ui.settings.SettingsActivity"
@@ -65,9 +49,5 @@
     <fragment
         android:id="@+id/nav_scheduled_pickup"
         android:name="com.example.apaga.ui.schedule.SchedulePickupFragment"
-        android:label="@string/schedule_a_pPickup" >
-        <action
-            android:id="@+id/action_nav_scheduled_pickup_to_nav_dashboard"
-            app:destination="@id/nav_dashboard" />
-    </fragment>
+        android:label="@string/schedule_a_pPickup" />
 </navigation>

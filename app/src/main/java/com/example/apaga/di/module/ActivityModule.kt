@@ -101,9 +101,10 @@ class ActivityModule(activity: AppCompatActivity) {
 
     @Provides
     fun provideDashboardAdapter(childAdapter: DashboardChildAdapter,
-                                layoutManager: LinearLayoutManager
+                                layoutManager: LinearLayoutManager,
+                                dialogUtils: DialogUtils
                                 ): DashboardAdapter =
-            DashboardAdapter(activity,childAdapter,layoutManager)
+            DashboardAdapter(activity,childAdapter,layoutManager,dialogUtils)
 
     @Provides
     fun provideDashboardChildAdapter(): DashboardChildAdapter =

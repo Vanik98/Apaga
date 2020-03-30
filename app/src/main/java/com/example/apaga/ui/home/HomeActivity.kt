@@ -38,7 +38,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     }
 
     override fun navigate(navigateId: Int) {
-        navController.navigate(R.id.nav_payment)
+        navController.navigate(navigateId)
     }
 
     override fun findViewsById() {

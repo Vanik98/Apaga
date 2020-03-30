@@ -68,5 +68,22 @@
     <string name="note_for_driver">Note for Driver</string>
     <string name="pickup_date">Pickup Date</string>
     <string name="schedule_a_pPickup">Schedule a Pickup</string>
+    <string name="full_name">Full name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="email_address">Email address</string>
+    <string name="registration">Registration</string>
+    <string name="login">Login</string>
+    <string name="sign_up_as_an_organization">Sign-up as an organization</string>
+    <string name="company_legal_name">Company Legal Name</string>
+    <string name="tax_code">Tax Code</string>
+    <string name="legal_address">Legal Address</string>
+    <string name="signing_director_s_name">Signing Director’s Name</string>
+    <string name="stop">Stop!</string>
+    <string name="nevermind">Nevermind</string>
+    <string name="i_want_to_cancel">I want to cancel</string>
+    <string name="smart_apaga_email">info@smartapaga.com</string>
+    <string name="spart_apaga_fb">www.facebook.com/smartapaga</string>
+    <string name="spart_apaga_phone">+374 95-90-42-45</string>
+    <string name="i_understand">I understand</string>
 
 </resources>

@@ -35,7 +35,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
     }
 
     override fun loginWithEmail(email: String, password: String) {
-        view.openHomeActivity()
+        view.openAddressActivity()
     }
 
     private fun loginWithFacebook(token: AccessToken) {

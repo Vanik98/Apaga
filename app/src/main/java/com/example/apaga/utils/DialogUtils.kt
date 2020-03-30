@@ -20,7 +20,7 @@ class DialogUtils @Inject constructor(private val dialog:Dialog){
         val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_custom_confirmation)
+        dialog.setContentView(R.layout.dialog_apaga_custom_confirmation)
 
         if (dialog.window != null) {
             dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -29,6 +29,9 @@ class DialogUtils @Inject constructor(private val dialog:Dialog){
 
         val txtTitle: TextView = dialog.findViewById(R.id.txt_title)
         val txtMessage: TextView = dialog.findViewById(R.id.txt_msg)
+        val txtEmail: TextView = dialog.findViewById(R.id.txt_email)
+        val txtFb: TextView = dialog.findViewById(R.id.txt_fb)
+        val txtPhone: TextView = dialog.findViewById(R.id.txt_phone)
 
         if (TextUtils.isEmpty(title)) {
             txtTitle.visibility = View.GONE
