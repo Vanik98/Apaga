@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiEndpointInterface {
+interface ApiHeader {
     @GET("")
     fun getUser(@Query("api-key") apiKey: String): Call<User>
 }

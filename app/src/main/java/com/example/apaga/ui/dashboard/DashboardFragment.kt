@@ -11,6 +11,7 @@ import com.example.apaga.R
 import com.example.apaga.ui.base.BaseFragment
 import com.example.apaga.ui.home.HomeActivity
 import com.example.apaga.ui.schedule.SchedulePickupContract
+import com.example.apaga.utils.DialogUtils
 import javax.inject.Inject
 
 class DashboardFragment : BaseFragment(), DashboardContract.View{

@@ -57,4 +57,8 @@ class AppDataManager @Inject constructor(
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun loginWithEmail(email: String, password: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 }

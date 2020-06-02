@@ -125,8 +125,8 @@ abstract class BaseFragment : Fragment(), MvpView {
 
     private fun setUp(view: View){
         findViewsById(view)
-        setViewsOnClickListener()
         setViewsOptions()
+        setViewsOnClickListener()
     }
     abstract fun findViewsById(view: View)
     open fun setViewsOnClickListener(){}

@@ -16,7 +16,7 @@ class AppApiHelper : ApiHelper {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiEndpointInterface::class.java).getUser("")
+                .create(ApiHeader::class.java).getUser("")
                 .enqueue(object : Callback<User>{
                       override fun onFailure(call: retrofit2.Call<User>, t: Throwable) {
                          }
@@ -25,6 +25,10 @@ class AppApiHelper : ApiHelper {
                       }
                   })
         return liveData
+    }
+
+    override fun loginWithEmail(email: String, password: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 

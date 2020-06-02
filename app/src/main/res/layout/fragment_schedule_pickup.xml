@@ -43,30 +43,30 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="37dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/schedule_pickup_iv_calendar"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         android:src="@drawable/logo_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="38dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:id="@+id/schedule_pickup_ed_time_picker"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/logo_clock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/textView2"
-        android:layout_width="147dp"
+    <TextView
+        android:id="@+id/schedule_pickup_tv_calendar_text"
+        android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintEnd_toStartOf="@+id/schedule_pickup_iv_calendar"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
@@ -74,8 +74,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Pickup Time"
+        android:layout_marginTop="22dp"
+        android:text="@string/pickup_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -83,7 +83,7 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Bag(s)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/schedule_pickup_rv_description" />
@@ -92,8 +92,8 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Interval (min:3 hours)"
+        android:layout_marginTop="38dp"
+        android:text="@string/interval_min_3_hours"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -102,10 +102,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:text="15"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        android:maxLength="2"
+        app:layout_constraintEnd_toStartOf="@+id/schedule_pickup_ed_time_picker"
         app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -115,8 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
-        android:text="To"
+        android:layout_marginTop="22dp"
+        android:text="@string/to"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -125,8 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="20"
+        android:maxLength="2"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

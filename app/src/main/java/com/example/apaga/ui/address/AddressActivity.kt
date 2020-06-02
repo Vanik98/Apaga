@@ -86,10 +86,10 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
 
         }
         locationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location?) {
-                val latiude = location!!.latitude
-                val longitude = location!!.longitude
-                val list = gc.getFromLocation(latiude, longitude, 1)
+            override fun onLocationChanged(location: Location) {
+                val latiude = location.latitude
+                val longitude = location.longitude
+                val list = gc.getFromLocation(location.latitude, location.longitude, 1)
                 val address: Address = list[0]
                 regions.setText(address.locality.toString())
 //                regions.setText(mMap.getCameraPosition().target.toString())

@@ -35,6 +35,7 @@ class LoginPresenter @Inject constructor(dataManager: DataManager
     }
 
     override fun loginWithEmail(email: String, password: String) {
+//        dataManager.loginWithEmail(email,password)
         view.openAddressActivity()
     }
 

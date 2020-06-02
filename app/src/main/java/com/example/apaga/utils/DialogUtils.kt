@@ -1,6 +1,7 @@
 package com.example.apaga.utils
 
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,11 +9,16 @@ import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Button
+import android.widget.CalendarView
 import android.widget.TextView
+import android.widget.TimePicker
 import com.example.apaga.R
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
-class DialogUtils @Inject constructor(private val dialog:Dialog){
+class DialogUtils @Inject constructor(private val dialog: Dialog) {
 
     fun showConfirmationDialog(context: Context, title: String?, message: String?,
                                negativeClickListener: View.OnClickListener?,
@@ -76,8 +82,53 @@ class DialogUtils @Inject constructor(private val dialog:Dialog){
 
         dialog.show()
     }
-    fun dialogDismis(){
-        if(dialog.isShowing){
+
+    fun showCalendar(context: Context, calendarText: TextView) {
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_calendar)
+        if (dialog.window != null) {
+            dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+        dialog.show()
+        val calendarView: CalendarView = dialog.findViewById(R.id.calendarView)
+            calendarView.setOnDateChangeListener { p0, p1, p2, p3 ->
+                    var day = "$p3"
+                    var mount  = if(p2<9){
+                        "0${p2+1}"
+                    }else{
+                        "${p2+1}"
+                    }
+
+                    var year = p1
+                calendarText.text = "$day/$mount/$year"
+                    dialog.dismiss()
+            }
+    }
+
+    fun showTimePicker(context: Context, calendarText: TextView) {
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_time_picker)
+        if (dialog.window != null) {
+            dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+        dialog.show()
+        val curFormater = SimpleDateFormat("dd/MM/yyyy")
+        val c = Calendar.getInstance().time
+        val formattedDate:String = curFormater.format(c)
+        var hourOfDay =c.hours
+        var minute = c.minutes
+        var is24HourView = false
+        val timePickerDialog  = TimePickerDialog(context,android.R.style.Theme_Holo_Light_Dialog_MinWidth, TimePickerDialog.OnTimeSetListener { p0, p1, p2 ->
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }, hourOfDay, minute, is24HourView)
+    }
+
+    fun dialogDismis() {
+        if (dialog.isShowing) {
             dialog.dismiss()
         }
     }

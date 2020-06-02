@@ -11,4 +11,6 @@ interface ApiHelper {
         get() = "https://content.guardianapis.com/"
 
     fun getUser() : LiveData<User>
+
+    fun loginWithEmail(email: String, password: String)
 }
