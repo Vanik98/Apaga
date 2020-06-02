@@ -89,5 +89,6 @@
     <string name="to">To</string>
     <string name="pickup_time">Pickup Time</string>
     <string name="interval_min_3_hours">Interval (min:3 hours)</string>
+    <string name="min_int_3">minimum interval 3</string>
 
 </resources>

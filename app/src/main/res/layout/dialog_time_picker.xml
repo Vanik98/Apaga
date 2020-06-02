@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_margin="20dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/pickup_time"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        ></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/interval_min_3_hours"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        ></TextView>
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:theme="@style/CustomDatePickerDialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119">
+
+    </TimePicker>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/to"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        ></TextView>
+
+    <TimePicker
+        android:id="@+id/timePicker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:theme="@style/CustomDatePickerDialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker1"
+        app:layout_constraintVertical_bias="0.102">
+
+    </TimePicker>
+    <Button
+        android:id="@+id/time_picker_confirm"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="@string/confirm"
+        android:textColor="@color/textColorLight"
+        android:background="@drawable/dark_buttons_background"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        />
+</LinearLayout>
+

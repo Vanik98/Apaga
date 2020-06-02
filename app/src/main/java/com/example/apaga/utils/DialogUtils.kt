@@ -1,5 +1,6 @@
 package com.example.apaga.utils
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Context
@@ -9,14 +10,12 @@ import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.TextView
-import android.widget.TimePicker
+import android.widget.*
 import com.example.apaga.R
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
+import kotlin.math.min
 
 class DialogUtils @Inject constructor(private val dialog: Dialog) {
 
@@ -107,7 +106,8 @@ class DialogUtils @Inject constructor(private val dialog: Dialog) {
             }
     }
 
-    fun showTimePicker(context: Context, calendarText: TextView) {
+    @SuppressLint("ShowToast")
+    fun showTimePicker(context: Context, t1: EditText, t2:EditText) {
         val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_time_picker)
@@ -116,15 +116,39 @@ class DialogUtils @Inject constructor(private val dialog: Dialog) {
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
         dialog.show()
-        val curFormater = SimpleDateFormat("dd/MM/yyyy")
-        val c = Calendar.getInstance().time
-        val formattedDate:String = curFormater.format(c)
-        var hourOfDay =c.hours
-        var minute = c.minutes
-        var is24HourView = false
-        val timePickerDialog  = TimePickerDialog(context,android.R.style.Theme_Holo_Light_Dialog_MinWidth, TimePickerDialog.OnTimeSetListener { p0, p1, p2 ->
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }, hourOfDay, minute, is24HourView)
+        var time1 = 0
+        var time2 =0
+        var minute = ""
+        val timePicer1:TimePicker = dialog.findViewById(R.id.timePicker1)
+        val timePicer2:TimePicker = dialog.findViewById(R.id.timePicker2)
+        timePicer1.setOnTimeChangedListener { p0, p1, p2 ->
+             minute  = if(p2<10){
+                "0$p2"
+            }else{
+                "$p2"
+            }
+
+            t1.setText("$p1:$minute")
+            time1 = p1
+        }
+        timePicer2.setOnTimeChangedListener { p0, p1, p2 ->
+              minute = if(p2<10){
+                "0$p2"
+            }else{
+                "$p2"
+              }
+                t2.setText("$p1:$minute")
+            time2 = p1
+        }
+        val  confirm :Button = dialog.findViewById(R.id.time_picker_confirm)
+        confirm.setOnClickListener{
+            if(time2 - time1 >=3){
+                dialog.dismiss()
+            }else{
+                Toast.makeText(context,context.getString(R.string.min_int_3),Toast.LENGTH_SHORT)
+            }
+        }
+
     }
 
     fun dialogDismis() {
