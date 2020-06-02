@@ -52,6 +52,7 @@ class SchedulePickupFragment : BaseFragment(), SchedulePickupContract.View {
         confirmBtn = view.findViewById(R.id.schedule_pickup_btn_confirm)
         closeBtn = view.findViewById(R.id.schedule_pickup_btn_close)
         cancelBtn = view.findViewById(R.id.schedule_pickup_btn_cancel)
+        recyclerView = view.findViewById(R.id.schedule_pickup_rv_description)
     }
 
     override fun setViewsOnClickListener() {
@@ -89,6 +90,14 @@ class SchedulePickupFragment : BaseFragment(), SchedulePickupContract.View {
         formattedDate = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date());
         timePickerT1.setText(formattedDate)
         timePickerT2.setText(formattedDate)
+        val list: List<String> = arrayListOf("1", "5", "3", "7")
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = adapter
+        adapter.setData(list)
+        recyclerView = view!!.findViewById(R.id.schedule_pickup_rv_bags)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = adapter
+        adapter.setData(list)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -96,15 +105,6 @@ class SchedulePickupFragment : BaseFragment(), SchedulePickupContract.View {
         activityComponent!!.inject(this)
         presenter.onAttach(this)
         val view = inflater.inflate(R.layout.fragment_schedule_pickup, container, false)
-        val list: List<String> = arrayListOf("1", "5", "3", "7")
-        recyclerView = view.findViewById(R.id.schedule_pickup_rv_description)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
-        adapter.setData(list)
-        recyclerView = view.findViewById(R.id.schedule_pickup_rv_bags)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
-        adapter.setData(list)
         return view
     }
 }
