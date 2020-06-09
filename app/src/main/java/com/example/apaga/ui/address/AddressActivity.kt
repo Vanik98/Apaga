@@ -38,8 +38,8 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
     private lateinit var locationListener: LocationListener
     private lateinit var myGelolocation: MarkerOptions
     lateinit var confirm: Button
-    lateinit var regions :EditText
-    lateinit var stretName:EditText
+    lateinit var regions: EditText
+    lateinit var stretName: EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +71,6 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
         setMap()
     }
 
-
     private fun setMap() {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.address_frg_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -94,8 +93,8 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
                 regions.setText(address.locality.toString())
 //                regions.setText(mMap.getCameraPosition().target.toString())
                 var street = ""
-                for(i in address.getAddressLine(0).toString().indices){
-                    if(address.getAddressLine(0).toString()[i]==','){
+                for (i in address.getAddressLine(0).toString().indices) {
+                    if (address.getAddressLine(0).toString()[i] == ',') {
                         break
                     }
                     street += address.getAddressLine(0).toString()[i]
