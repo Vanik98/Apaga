@@ -145,4 +145,13 @@ class AddressActivity : BaseActivity(), OnMapReadyCallback {
 
     }
 
+    override fun onBackPressed() {
+        openHomeActivity()
+    }
+
+    private fun openHomeActivity() {
+        startActivity(Intent(this,HomeActivity::class.java))
+        finish()
+    }
+
 }
